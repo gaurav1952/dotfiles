@@ -1,3 +1,8 @@
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH=$PATH:/usr/local/bin/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # Color variables
 COLOR_RED='\e[31m'
 COLOR_GREEN='\e[32m'
@@ -7,34 +12,6 @@ COLOR_PURPLE='\e[35m'
 COLOR_CYAN='\e[36m'
 COLOR_WHITE='\e[37m'
 COLOR_RESET='\e[0m'
-
-# Text formatting
-BOLD='\e[1m'
-UNDERLINE='\e[4m'
-BLINK='\e[5m'
-REVERSE='\e[7m'
-HIDDEN='\e[8m'
-
-# Background colors
-BG_RED='\e[41m'
-BG_GREEN='\e[42m'
-BG_YELLOW='\e[43m'
-BG_BLUE='\e[44m'
-BG_PURPLE='\e[45m'
-BG_CYAN='\e[46m'
-BG_WHITE='\e[47m'
-
-# Bright colors
-BRIGHT_RED='\e[91m'
-BRIGHT_GREEN='\e[92m'
-BRIGHT_YELLOW='\e[93m'
-BRIGHT_BLUE='\e[94m'
-BRIGHT_PURPLE='\e[95m'
-BRIGHT_CYAN='\e[96m'
-BRIGHT_WHITE='\e[97m'
-
-
-
 
 cow_ascii() {
     echo -e "${COLOR_YELLOW}"
@@ -93,17 +70,18 @@ penguin_ascii_sys() {
     echo "                         ${COLOR_WHITE} Disk:  ${DISK_USAGE}${COLOR_YELLOW}"
     echo -e "${COLOR_RESET}"
 }
-penguin_ascii_sys
-# Enable Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# penguin_ascii_sys
 
-# Path to Oh My Zsh installation
-export ZSH="$HOME/.oh-my-zsh"
+
+
 
 # Theme setting
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
+
+# for plugings
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # History settings
 HISTFILE=~/.zsh_history
@@ -113,23 +91,9 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
 
-# Completion settings
-autoload -Uz compinit && compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*:descriptions' format '%F{green}%d%f'
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB to view completions.%s
 
-# Plugins
-plugins=(
-    git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
 
-source $ZSH/oh-my-zsh.sh
+
 
 # System information function for gaurav command
 system_info() {
@@ -157,13 +121,7 @@ system_info() {
         nvidia-smi --query-gpu=gpu_name,memory.total,memory.used --format=csv,noheader
     fi
     
-    # Network Information (commented out)
-    # echo -e "\n${COLOR_YELLOW}=== Network Information ===${COLOR_RESET}"
-    # if command -v ip &> /dev/null; then
-    #     echo -e "${COLOR_GREEN}IP Address: $(ip addr show | grep -w inet | grep -v 127.0.0.1 | awk '{print $2}' | cut -d/ -f1)${COLOR_RESET}"
-    # else
-    #     echo -e "${COLOR_GREEN}IP Address: $(ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}')${COLOR_RESET}"
-    # fi
+  
 }
 
 # fzf for vs code 
@@ -181,17 +139,19 @@ alias ll='ls -l'
 alias la='ls -a'
 alias f='cd /mnt/f'
 alias cls='clear'
+# alias lt='list'
+alias cpp='g++'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias lt='list'
-
+alias bat='batcat'
+alias info='penguin_ascii_sys'
 
 
 # Git aliases
 alias gs='git status'
 alias gp='git pull'
 alias gcm='git commit -m'
-alias gl='git log'
+alias gl='git log --graph'
 alias gd='git diff'
 alias ga='git add'
 alias gco='git checkout'
@@ -199,6 +159,9 @@ alias gb='git branch'
 alias grb='git rebase'
 alias gst='git stash'
 alias glog='git log --oneline --graph --decorate'
+
+alias gitorigin='git remote get-url origin'
+
 
 # Directory and file management
 # alias mkdir='mkdir -p'
@@ -211,14 +174,15 @@ alias glog='git log --oneline --graph --decorate'
 
 # Development aliases
 alias py='python3'
-alias pip='pip3'
 alias c='code .'
 alias phpserver='php -S localhost:4000'
 alias work="cd /mnt/f/notes && phpserver"
-alias download='cd /mnt/f/downloads'
+alias downloads='cd /mnt/f/downloads'
 alias se='fzf_code'
 alias sn='fzf_nvim'
-
+alias check='ls -la | grep'
+alias vim='vi'
+alias start='powershell.exe start'
 
 
 # System aliases
@@ -231,6 +195,7 @@ alias disk='ncdu'
 
 #for fun
 alias cow='cow_ascii'
+alias gaurav='system_info'
 
 
 # Custom function for Brave search
@@ -241,9 +206,9 @@ open() {
         start Brave "https://search.brave.com/search?q=$1&source=desktop"
     fi
 }
-if [ -f /etc/profile ]; then
-  . /etc/profile
-fi
+# if [ -f /etc/profile ]; then
+#   . /etc/profile
+# fi
 
 # FZF integration
 if [ -f ~/.fzf.zsh ]; then
@@ -268,14 +233,8 @@ fi
 
 bindkey '\em' backward-kill-word
 bindkey '^I' autosuggest-accept
+eval "$(starship init zsh)"
 
-
-
-# Gaurav command with ASCII art and system info
-alias gaurav='echo -e "\e[33mHello g4aur4v\e[0m" && system_info'
-
-# Load Powerlevel10k config
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -e ~/.phpbrew/zshrc ]] && source ~/.phpbrew/zshrc
