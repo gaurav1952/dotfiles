@@ -38,7 +38,6 @@
   "workbench.editor.editorActionsLocation": "hidden",
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
-
   "vim.normalModeKeyBindings": [
     {
       "before": ["<leader>", "s"],
@@ -103,10 +102,9 @@
       "after": ["^"]
     },
     {
-      "before": ["<leader>", "g"],
+      "before": ["<leader>", "e"],
       "after": ["g", "_"]
     },
-
     {
       "before": ["<leader>", "y", "y"],
       "after": ["\"", "+", "y"]
@@ -116,13 +114,13 @@
       "after": ["\"", "+", "p"]
     },
     {
-    "before": ["<A-j>"],
-    "commands": ["editor.action.moveLinesDownAction"]
-  },
-  {
-    "before": ["<A-k>"],
-    "commands": ["editor.action.moveLinesUpAction"]
-  }
+      "before": ["<leader>", "j"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    }
   ],
   "vim.surround": true,
   "workbench.layoutControl.enabled": false,
