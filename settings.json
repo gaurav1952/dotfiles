@@ -1,0 +1,143 @@
+{
+  "workbench.sideBar.location": "right",
+  "workbench.activityBar.location": "hidden",
+  "workbench.iconTheme": "file-icons",
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  },
+  "workbench.startupEditor": "none",
+  "extensions.ignoreRecommendations": true,
+  "editor.stickyScroll.enabled": false,
+  "editor.cursorBlinking": "expand",
+  "php.validate.executablePath": "",
+  "liveSassCompile.settings.showOutputWindowOn": "None",
+  "emmet.showSuggestionsAsSnippets": true,
+  "editor.fontFamily": "'JetBrainsMono NF Medium', Consolas, 'Courier New', monospace",
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "after": ["^"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "after": ["$"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["%"]
+    },
+    {
+      "before": ["<C-q>"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<S-h>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<S-l>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "b", "l"],
+      "commands": [":ls"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "commands": ["workbench.action.increaseViewSize"]
+    },
+    {
+      "before": ["<leader>", "-"],
+      "commands": ["workbench.action.decreaseViewSize"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "f"],
+      "after": ["^"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "after": ["g", "_"]
+    },
+
+    {
+      "before": ["<leader>", "y", "y"],
+      "after": ["\"", "+", "y"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
+    },
+    {
+    "before": ["<A-j>"],
+    "commands": ["editor.action.moveLinesDownAction"]
+  },
+  {
+    "before": ["<A-k>"],
+    "commands": ["editor.action.moveLinesUpAction"]
+  }
+  ],
+  "vim.surround": true,
+  "workbench.layoutControl.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "window.menuBarVisibility": "compact",
+  "editor.minimap.enabled": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.colorTheme": "One Dark Pro Night Flat",
+  "emmet.includeLanguages": {
+    "blade": "html"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
