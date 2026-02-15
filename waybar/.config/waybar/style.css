@@ -181,6 +181,26 @@ button:hover {
     border-color: rgba(255, 60, 80, 0.3);
     animation: blink 0.6s steps(8) infinite alternate;
 }
+/* ── CONTROL CENTER PANEL ─────────────────────────────── */
+#custom-notification {
+    padding: 0 12px;
+    margin: 4px 2px;
+
+    color: #dde3f0;
+    background: rgba(50, 160, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-color: rgba(50, 160, 255, 0.2);
+
+    transition: all 0.2s ease;
+}
+
+#custom-notification:hover {
+    background: rgba(50, 160, 255, 0.18);
+    box-shadow: 0 0 12px rgba(50, 160, 255, 0.15);
+}
+
+
 
 /* ── CPU ────────────────────────────────────────────────── */
 #cpu {
@@ -254,6 +274,9 @@ button:hover {
 
 /* ── PULSEAUDIO ─────────────────────────────────────────── */
 #pulseaudio {
+    padding: 0 12px;
+    margin: 4px 2px;
+    
     background: rgba(255, 200, 50, 0.1);
     color: #ffd878;
     border-color: rgba(255, 200, 50, 0.2);

@@ -1,0 +1,97 @@
+/* Catppuccin Mocha - Rofi Theme */
+
+* {
+    bg0:     #1e1e2eee;
+    bg1:     #313244ee;
+    bg2:     #45475aee;
+    fg0:     #cdd6f4;
+    fg1:     #bac2de;
+    accent:  #cba6f7;
+    urgent:  #f38ba8;
+    green:   #a6e3a1;
+    yellow:  #f9e2af;
+
+    background-color: transparent;
+    text-color:       @fg0;
+    font:             "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color: @bg0;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    12px;
+    width:            600px;
+    padding:          16px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, message, listview ];
+    spacing:          12px;
+}
+
+inputbar {
+    background-color: @bg1;
+    border-radius:    8px;
+    padding:          10px 14px;
+    children:         [ prompt, entry ];
+    spacing:          8px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "JetBrainsMono Nerd Font Bold 13";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg0;
+    placeholder:      "Search...";
+    placeholder-color: @fg1;
+}
+
+listview {
+    background-color: transparent;
+    columns:          4;
+    lines:            4;
+    spacing:          8px;
+    scrollbar:        false;
+    layout:           vertical;
+    fixed-height:     true;
+}
+
+element {
+    background-color: @bg1;
+    border-radius:    8px;
+    padding:          12px 8px;
+    orientation:      vertical;
+    spacing:          6px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color:       @bg0;
+}
+
+element-icon {
+    size:             48px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    text-color:       inherit;
+    font:             "JetBrainsMono Nerd Font 10";
+}
+
+message {
+    background-color: @bg1;
+    border-radius:    8px;
+    padding:          8px 14px;
+}
+
+textbox {
+    text-color: @yellow;
+}

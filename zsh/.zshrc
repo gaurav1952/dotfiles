@@ -244,8 +244,8 @@ bindkey '^I' autosuggest-accept
 #################################################
 # AUTO START
 #################################################
-eval "$(starship init zsh)"
 source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

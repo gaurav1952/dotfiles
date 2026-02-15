@@ -1,0 +1,14 @@
+configuration {
+    modi:                "drun,run,filebrowser";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    display-drun:        "󰀻 Apps";
+    display-run:         " Run";
+    display-filebrowser: " Files";
+    drun-display-format: "{name}";
+    hover-select:        true;
+    me-select-entry:     "";
+    me-accept-entry:     "MousePrimary";
+}
+
+@theme "~/.config/rofi/catppuccin-mocha.rasi"

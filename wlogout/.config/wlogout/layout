@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "sh -c 'hyprlock'",
     "text" : "Lock",
     "keybind" : "l"
 }
