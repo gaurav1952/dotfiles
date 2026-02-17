@@ -5,7 +5,7 @@ WALLPAPER_DIR="$HOME/Pictures/wallpaper"
 
 # Transition settings — edit these to change effect!
 # Types: fade, wipe, wave, grow, outer, random
-TRANSITION_TYPE="wave"
+TRANSITION_TYPE="random"
 TRANSITION_DURATION="1.5"
 TRANSITION_FPS="60"
 TRANSITION_ANGLE="30"  # 0 = Left to Right , 90 = Top to Bottom 45 = Diagonal. Only in wipe and wave 

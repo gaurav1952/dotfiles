@@ -1,0 +1,322 @@
+{
+  // ┌─────────────────────────────────────────────────────────┐
+  // │              FASTFETCH — ULTIMATE CONFIG                 │
+  // │         Drop in: ~/.config/fastfetch/config.jsonc       │
+  // └─────────────────────────────────────────────────────────┘
+
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "source": "auto",          // change to "arch", "nixos", "ubuntu", etc. or an image path
+    "color": {
+      "1": "blue",
+      "2": "cyan"
+    },
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    }
+  },
+
+  "display": {
+    "separator": " ➜  ",
+    "color": {
+      "separator": "cyan"
+    },
+    "keyWidth": 14,
+    "bar": {
+      "charElapsed": "█",
+      "charTotal": "░",
+      "borderLeft": "[",
+      "borderRight": "]",
+      "width": 20
+    }
+  },
+
+  "modules": [
+
+    // ── HEADER ──────────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m╭─── \u001b[1;37mSystem Intel\u001b[1;36m ─────────────────────────────╮\u001b[0m"
+    },
+
+    // ── USER & HOST ─────────────────────────────────────────
+    {
+      "type": "title",
+      "key": "",
+      "format": "\u001b[1;33m{user-name}\u001b[0m\u001b[1;37m@\u001b[0m\u001b[1;32m{host-name}\u001b[0m"
+    },
+
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m├──────────────────────────────────────────────────────╯\u001b[0m"
+    },
+
+    // ── OS ──────────────────────────────────────────────────
+    {
+      "type": "os",
+      "key": " OS",
+      "keyColor": "blue",
+      "format": "{name} {version} {arch}"
+    },
+
+    // ── KERNEL ──────────────────────────────────────────────
+    {
+      "type": "kernel",
+      "key": " Kernel",
+      "keyColor": "blue",
+      "format": "{release}"
+    },
+
+    // ── UPTIME ──────────────────────────────────────────────
+    {
+      "type": "uptime",
+      "key": "󱫐 Uptime",
+      "keyColor": "blue"
+    },
+
+    // ── HOST / MACHINE ──────────────────────────────────────
+    {
+      "type": "host",
+      "key": "󰌢 Machine",
+      "keyColor": "blue"
+    },
+
+    // ── BIOS ────────────────────────────────────────────────
+    {
+      "type": "bios",
+      "key": " BIOS",
+      "keyColor": "blue"
+    },
+
+    // ── SEPARATOR ───────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m├──────────────────────────────────────────────────────\u001b[0m"
+    },
+
+    // ── SHELL & DE ──────────────────────────────────────────
+    {
+      "type": "shell",
+      "key": " Shell",
+      "keyColor": "green",
+      "format": "{name} {version}"
+    },
+
+    {
+      "type": "de",
+      "key": " DE/WM",
+      "keyColor": "green"
+    },
+
+    {
+      "type": "wm",
+      "key": " WM",
+      "keyColor": "green"
+    },
+
+    {
+      "type": "wmtheme",
+      "key": "󰉼 WM Theme",
+      "keyColor": "green"
+    },
+
+    {
+      "type": "icons",
+      "key": "󰀸 Icons",
+      "keyColor": "green"
+    },
+
+    {
+      "type": "gtk",
+      "key": " GTK",
+      "keyColor": "green",
+      "format": "{theme} ({version})"
+    },
+
+    {
+      "type": "font",
+      "key": " Font",
+      "keyColor": "green",
+      "format": "{name} ({size}pt)"
+    },
+
+    {
+      "type": "cursor",
+      "key": "󰳽 Cursor",
+      "keyColor": "green",
+      "format": "{name} ({size}px)"
+    },
+
+    {
+      "type": "terminal",
+      "key": " Terminal",
+      "keyColor": "green",
+      "format": "{name} {version}"
+    },
+
+    {
+      "type": "terminalfont",
+      "key": " Term Font",
+      "keyColor": "green",
+      "format": "{name} ({size}pt)"
+    },
+
+    // ── SEPARATOR ───────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m├──────────────────────────────────────────────────────\u001b[0m"
+    },
+
+    // ── HARDWARE ────────────────────────────────────────────
+    {
+      "type": "cpu",
+      "key": " CPU",
+      "keyColor": "red",
+      "format": "{name} ({cores-physical}C/{cores-logical}T) @ {freq-max}GHz"
+    },
+
+    {
+      "type": "cpuusage",
+      "key": "󰓅 CPU Usage",
+      "keyColor": "red",
+      "format": "{0}% {bar}"
+    },
+
+    {
+      "type": "gpu",
+      "key": "󰍛 GPU",
+      "keyColor": "red",
+      "format": "{name} ({vendor}) {vram} VRAM"
+    },
+
+    {
+      "type": "memory",
+      "key": "󰘚 Memory",
+      "keyColor": "red",
+      "format": "{used} / {total} ({percentage}%) {bar}"
+    },
+
+    {
+      "type": "swap",
+      "key": "󰘚 Swap",
+      "keyColor": "red",
+      "format": "{used} / {total} ({percentage}%)"
+    },
+
+    // ── DISKS ────────────────────────────────────────────────
+    {
+      "type": "disk",
+      "key": "󰋊 Disk (/)",
+      "keyColor": "red",
+      "folders": "/",
+      "format": "{used} / {total} ({percentage}%) {bar} {filesystem}"
+    },
+
+    {
+      "type": "disk",
+      "key": "󰋊 Disk (/home)",
+      "keyColor": "red",
+      "folders": "/home",
+      "format": "{used} / {total} ({percentage}%) — {filesystem}"
+    },
+
+    // ── SEPARATOR ───────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m├──────────────────────────────────────────────────────\u001b[0m"
+    },
+
+    // ── NETWORK ─────────────────────────────────────────────
+    {
+      "type": "localip",
+      "key": "󰈀 Local IP",
+      "keyColor": "magenta",
+      "showIpv4": true,
+      "showIpv6": false,
+      "namePrefix": "e"
+    },
+
+    {
+      "type": "publicip",
+      "key": "󰖟 Public IP",
+      "keyColor": "magenta",
+      "timeout": 3000
+    },
+
+    {
+      "type": "wifi",
+      "key": "󰤨 Wi-Fi",
+      "keyColor": "magenta",
+      "format": "{ssid} ({signal}% signal, {security})"
+    },
+
+    {
+      "type": "bluetooth",
+      "key": "󰂯 Bluetooth",
+      "keyColor": "magenta"
+    },
+
+    // ── SEPARATOR ───────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m├──────────────────────────────────────────────────────\u001b[0m"
+    },
+
+    // ── SYSTEM EXTRAS ───────────────────────────────────────
+    {
+      "type": "battery",
+      "key": "󰁹 Battery",
+      "keyColor": "yellow",
+      "format": "{percentage}% [{status}] — {time-remaining}"
+    },
+
+    {
+      "type": "brightness",
+      "key": "󰃟 Brightness",
+      "keyColor": "yellow",
+      "format": "{percentage}%"
+    },
+
+    {
+      "type": "sound",
+      "key": "󰕾 Volume",
+      "keyColor": "yellow",
+      "format": "{volume}% [{default-sink}]"
+    },
+
+    {
+      "type": "datetime",
+      "key": "󰃰 Date/Time",
+      "keyColor": "yellow",
+      "format": "%A, %d %B %Y  %H:%M:%S"
+    },
+
+    {
+      "type": "locale",
+      "key": "󰊿 Locale",
+      "keyColor": "yellow"
+    },
+
+    {
+      "type": "packages",
+      "key": "󰏗 Packages",
+      "keyColor": "yellow"
+    },
+
+    // ── FOOTER ──────────────────────────────────────────────
+    {
+      "type": "custom",
+      "format": "\u001b[1;36m╰──────────────────────────────────────────────────────╯\u001b[0m"
+    },
+
+    // ── COLOR PALETTE ────────────────────────────────────────
+    {
+      "type": "colors",
+      "paddingLeft": 2,
+      "symbol": "circle"
+    }
+  ]
+}
