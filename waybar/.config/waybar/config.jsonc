@@ -1,173 +1,134 @@
 // -*- mode: jsonc -*-
 {
-     "layer": "top", // Waybar at top layer
-     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "layer": "top",
+    "position": "top",
+    // "width": 1000,
+    "height": 30,
+    "spacing": 0,
+
     "modules-left": [
-        // "hyprland/workspaces",
-        // "hyprland/mode",
-        // "hyprland/scratchpad",
         "clock",
         "tray",
         "custom/media"
     ],
     "modules-center": [
         "hyprland/workspaces"
-        //"hyprland/window"
     ],
     "modules-right": [
-        // "mpd",
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        // "power-profiles-daemon",
-        // "cpu",
-        // "memory",
         "temperature",
-        // "backlight",
-        // "keyboard-state",
-        // "sway/language",
-       
         "battery",
-        // "battery#bat2",
-        "custom/power",
         "custom/notification"
     ],
-    // Modules configuration
-     "hyprland/workspaces": {
+
+    // ── Workspaces ──────────────────────────────────
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "१",
-            "2": "२",
-            "3": "३",
-            "4": "४",
-            "5": "५",
-            "6": "६",
-            "7": "७",
-            "8": "८",
-            "9": "९",
+            "1":  "१",
+            "2":  "२",
+            "3":  "३",
+            "4":  "४",
+            "5":  "५",
+            "6":  "६",
+            "7":  "७",
+            "8":  "८",
+            "9":  "९",
             "10": "१०"
         }
     },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
+
+    // ── Clock ────────────────────────────────────────
+    "clock": {
+        "format": "󰥔  {:%I:%M %p}",
+        "format-alt": "󰃭  {:%a, %d %b %Y}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // ── Tray ─────────────────────────────────────────
+    "tray": {
+        "spacing": 8,
+        "icon-size": 18
+    },
+
+    // ── Media ─────────────────────────────────────────
+    "custom/media": {
+        "format": "{icon}  {text}",
+        "return-type": "json",
+        "max-length": 35,
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
+            "spotify": "󰓇",
+            "default": "󰎆"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
+
+    // ── Idle Inhibitor ───────────────────────────────
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-
-        "spacing": 10
-        
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "custom/notification": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "swaync-client -t"
+            "activated": "󰈈",
+            "deactivated": "󰈉"
+        },
+        "tooltip-format-activated": "Idle inhibitor ON",
+        "tooltip-format-deactivated": "Idle inhibitor OFF"
     },
 
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+    // ── Pulseaudio ───────────────────────────────────
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "portable": "󰄝",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     },
-    "memory": {
-        "format": "{}% "
+
+    // ── Network ──────────────────────────────────────
+    "network": {
+        "interface": "wl*",
+        "format-wifi": "󰖩 ",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "󰖩 {essid}\n󰜎 {signalStrength}%\n󰓅 {frequency} GHz",
+        "on-click": "~/.config/rofi/scripts/wifi.sh"
     },
+
+    // ── Temperature ──────────────────────────────────
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format": "{icon}  {temperatureC}°C",
+        "format-critical": "󰸁  {temperatureC}°C",
+        "format-icons": ["󰜗", "󰜗", "󰸁"]
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
+
+    // ── Battery ──────────────────────────────────────
     "battery": {
+        "interval": 20,
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-full": "󰁹  Full",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{time} remaining"
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-    "network": {
-    "interface": "wl*",
-    "format-wifi": "{essid} ",
-    "format-disconnected": "⚠",
-    "tooltip-format": "{signalStrength}%",
-    "on-click": "nm-connection-editor"
-},
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/notifications": {
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t",
-        "interval": 2,
-        "return-type": "json",
+
+    // ── Notification ─────────────────────────────────
+    "custom/notification": {
+        "tooltip": false,
         "format": "{icon}",
         "format-icons": {
             "notification": "󰂚",
@@ -175,25 +136,9 @@
             "dnd-notification": "󰂛",
             "dnd-none": "󰪑"
         },
-        "tooltip": false
-        },
-    "custom/media": {
-        "format": "{icon} {text}",
         "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/power": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "wlogout"
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
     }
-
 }
-//⏻ 

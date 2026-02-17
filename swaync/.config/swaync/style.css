@@ -1,207 +1,291 @@
-:root {
-  --cc-bg: rgba(32, 32, 32, 0.85);
-  --noti-border-color: rgba(255, 255, 255, 0.12);
-  --noti-bg: rgba(42, 42, 42, 0.75);       /* FIXED: was broken raw RGB split across two vars */
-  --noti-bg-hover: rgba(70, 70, 70, 0.5);
-  --text-color: rgb(255, 255, 255);
-  --border-radius: 16px;
+/* =============================================
+   SwayNC - Catppuccin Mocha
+   ============================================= */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+  --mpris-album-art-icon-size: 56px;
 }
 
-/* ---------- Base ---------- */
+/* ── Variables ── */
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color crust  #11111b;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+@define-color overlay0 #6c7086;
+@define-color text   #cdd6f4;
+@define-color subtext #bac2de;
+@define-color lavender #b4befe;
+@define-color mauve  #cba6f7;
+@define-color pink   #f5c2e7;
+@define-color red    #f38ba8;
+@define-color peach  #fab387;
+@define-color yellow #f9e2af;
+@define-color green  #a6e3a1;
+@define-color teal   #94e2d5;
+@define-color blue   #89b4fa;
 
-notificationwindow,
-blankwindow {
-  background: transparent;
-}
-
-.floating-notifications {
-  background: transparent;
-}
-
-/* ---------- Control Center ---------- */
-
+/* ── Control Center ── */
 .control-center {
-  background: rgba(32, 32, 32, 0.85);
+  background-color: alpha(@base, 0.92);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  /* NOTE: backdrop-filter is NOT supported in GTK CSS — removed */
+  border: 1px solid alpha(@mauve, 0.3);
+  box-shadow: 0 8px 32px alpha(black, 0.4);
+  padding: 12px;
+  color: @text;
 }
 
-/* ---------- Notification Cards ---------- */
-
-.notification-row .notification-background .notification {
-  background: var(--noti-bg);             /* FIXED: now uses a proper rgba() var */
-  border-radius: var(--border-radius);
-  border: 1px solid var(--noti-border-color);
-  transition: background 0.15s ease;
-}
-
-.notification-row .notification-background .notification:hover {
-  background: var(--noti-bg-hover);
-}
-
-/* ---------- Notification Content ---------- */
-
-.notification-default-action {
-  background: transparent;
-  border-radius: var(--border-radius);
-  padding: 6px;
-}
-
-.notification-content .summary {
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--text-color);
-}
-
-.notification-content .body {
-  font-size: 14px;
-  color: var(--text-color);
-  opacity: 0.9;
-}
-
-/* ---------- Close Button ---------- */
-
-.close-button {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  min-width: 24px;
-  min-height: 24px;
-  border: none;
-}
-
-.close-button:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-/* ---------- Widgets ---------- */
-
-.widget {
-  margin: 8px;
-  padding: 10px;
-  border-radius: var(--border-radius);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* ---------- Title Widget ---------- */
-
-.widget-title label {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.widget-title button {
-  border-radius: 10px;
-}
-
-/* ---------- DND Widget ---------- */
-
-.widget-dnd label {
-  font-size: 1.1rem;
-}
-
-.widget-dnd switch {
-  border-radius: 999px;
-}
-
-/* ---------- MPRIS (Media Player) ---------- */
-
-.widget-mpris-player {
-  border-radius: var(--border-radius);
-  /* NOTE: overflow: hidden is NOT supported in GTK CSS — removed */
-}
-
-.widget-mpris .mpris-background {
-  /* NOTE: filter: blur() on arbitrary elements is NOT supported in GTK CSS — removed */
-}
-
-.widget-mpris .mpris-overlay {
-  background: rgba(0, 0, 0, 0.55);
-  padding: 14px;
-}
-
-.widget-mpris-album-art {
-  border-radius: 12px;
-}
-
-/* ---------- BUTTONS GRID (Quick Settings) ---------- */
-
+/* ── Buttons Grid ── */
 .widget-buttons-grid {
-  margin-top: 4px;
+  background-color: alpha(@surface0, 0.5);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 8px;
 }
 
 .widget-buttons-grid flowboxchild > button {
-  border-radius: 14px;
-  padding: 10px 6px;
-  min-width: 48px;
-  min-height: 52px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 20px;
-  transition: all 0.15s ease;
+  background-color: alpha(@surface0, 0.8);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: @subtext;
+  font-size: 26px;
+  min-width: 72px;
+  min-height: 60px;
+  margin: 4px;
+  transition: all 200ms ease;
 }
-
-/* Hover */
 
 .widget-buttons-grid flowboxchild > button:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.14);
+  background-color: alpha(@surface1, 0.9);
+  border-color: alpha(@mauve, 0.4);
+  color: @text;
 }
-
-/* Press */
 
 .widget-buttons-grid flowboxchild > button:active {
-  background: rgba(255, 255, 255, 0.04);
+  background-color: alpha(@mauve, 0.3);
+  border-color: @mauve;
+  color: @mauve;
 }
 
-/* ----- Toggle: OFF state (dimmed label) ----- */
-
-.widget-buttons-grid flowboxchild > button.toggle {
-  color: rgba(255, 255, 255, 0.45);
+/* Active toggle state — wifi, bluetooth, hyprsunset */
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+  background-color: alpha(@mauve, 0.25);
+  border-color: @mauve;
+  color: @mauve;
 }
 
-/* ----- Toggle: ON states (per-button accent colors) ----- */
-
-/* WiFi — blue */
-.widget-buttons-grid flowboxchild:nth-child(1) > button.toggle:checked {
-  background: rgba(0, 160, 255, 0.85);
-  color: white;
-  border-color: rgba(0, 160, 255, 0.4);
+.widget-buttons-grid flowboxchild > button.toggle:checked:hover {
+  background-color: alpha(@mauve, 0.4);
 }
 
-/* Bluetooth — indigo */
-.widget-buttons-grid flowboxchild:nth-child(2) > button.toggle:checked {
-  background: rgba(80, 120, 255, 0.85);
-  color: white;
-  border-color: rgba(80, 120, 255, 0.4);
+/* ── Volume & Backlight Sliders ── */
+.widget-volume,
+.widget-backlight {
+  background-color: alpha(@surface0, 0.5);
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin-bottom: 8px;
 }
 
-/* Night Light — amber */
-.widget-buttons-grid flowboxchild:nth-child(3) > button.toggle:checked {
-  background: rgba(255, 160, 40, 0.85);
-  color: white;
-  border-color: rgba(255, 160, 40, 0.4);
+.widget-volume label,
+.widget-backlight label {
+  color: @mauve;
+  font-size: 16px;
+  min-width: 24px;
 }
 
-/* Mute — red */
-.widget-buttons-grid flowboxchild:nth-child(4) > button.toggle:checked {
-  background: rgba(220, 60, 60, 0.85);
-  color: white;
-  border-color: rgba(220, 60, 60, 0.4);
+scale {
+  min-height: 20px;
 }
 
-/* ---------- Notification List ---------- */
-
-.control-center-list {
-  background: transparent;
+scale trough {
+  background-color: alpha(@surface1, 0.8);
+  border-radius: 10px;
+  min-height: 6px;
 }
 
-/* ---------- Scrollbars ---------- */
+scale highlight {
+  background-color: @mauve;
+  border-radius: 10px;
+}
 
+scale slider {
+  background-color: @text;
+  border-radius: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  box-shadow: 0 1px 4px alpha(black, 0.3);
+}
+
+scale slider:hover {
+  background-color: @mauve;
+}
+
+/* ── MPRIS ── */
+.widget-mpris {
+  background-color: alpha(@surface0, 0.5);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.widget-mpris-player {
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 14px;
+  color: @text;
+}
+
+.widget-mpris-subtitle {
+  font-size: 12px;
+  color: @subtext;
+}
+
+/* ── DND Toggle ── */
+.widget-dnd {
+  background-color: alpha(@surface0, 0.5);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.widget-dnd > switch {
+  border-radius: 20px;
+  background-color: @surface1;
+  border: 1px solid @surface2;
+}
+
+.widget-dnd > switch:checked {
+  background-color: @mauve;
+  border-color: @mauve;
+}
+
+.widget-dnd > switch slider {
+  background-color: @text;
+  border-radius: 50%;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.widget-dnd > label {
+  color: @text;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* ── Notifications ── */
+.widget-notifications {
+  border-radius: 12px;
+}
+
+/* Notification List Header / Clear All */
+.widget-notifications-clear-all-button {
+  background-color: alpha(@surface0, 0.6);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: @subtext;
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  transition: all 200ms ease;
+}
+
+.widget-notifications-clear-all-button:hover {
+  background-color: alpha(@red, 0.2);
+  border-color: alpha(@red, 0.4);
+  color: @red;
+}
+
+/* Individual Notification */
+.notification {
+  background-color: alpha(@surface0, 0.85);
+  border-radius: 12px;
+  border: 1px solid alpha(@surface1, 0.6);
+  padding: 10px;
+  margin: 4px 0;
+  transition: all 200ms ease;
+}
+
+.notification:hover {
+  border-color: alpha(@mauve, 0.4);
+}
+
+.notification-summary {
+  font-weight: bold;
+  font-size: 13px;
+  color: @text;
+}
+
+.notification-body {
+  font-size: 12px;
+  color: @subtext;
+}
+
+.notification-app-name {
+  font-size: 11px;
+  color: @overlay0;
+}
+
+.notification-time {
+  font-size: 11px;
+  color: @overlay0;
+}
+
+/* Urgency colors */
+.notification.critical {
+  border-color: alpha(@red, 0.6);
+  background-color: alpha(@red, 0.1);
+}
+
+.notification.low {
+  border-color: alpha(@surface1, 0.4);
+}
+
+/* Close button */
+.notification > box > box > box > button {
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  color: @overlay0;
+  padding: 2px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.notification > box > box > box > button:hover {
+  background-color: alpha(@red, 0.2);
+  color: @red;
+}
+
+/* ── Notification Popup (outside panel) ── */
+.notification-popup {
+  background-color: alpha(@base, 0.92);
+  border-radius: 12px;
+  border: 1px solid alpha(@mauve, 0.3);
+  box-shadow: 0 4px 16px alpha(black, 0.3);
+  padding: 10px;
+  margin: 4px;
+}
+
+/* ── Scrollbar ── */
 scrollbar {
-  opacity: 0.3;
+  background-color: transparent;
+  min-width: 4px;
 }
 
-scrollbar:hover {
-  opacity: 0.6;
+scrollbar slider {
+  background-color: alpha(@surface2, 0.6);
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+scrollbar slider:hover {
+  background-color: @mauve;
 }

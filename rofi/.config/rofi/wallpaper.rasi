@@ -1,0 +1,88 @@
+/* Rofi Wallpaper Picker - Filebrowser mode */
+
+* {
+    bg0:    #1e1e2e;
+    bg1:    #313244;
+    fg0:    #cdd6f4;
+    fg1:    #bac2de;
+    accent: #cba6f7;
+
+    background-color: transparent;
+    text-color:       @fg0;
+    font:             "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    background-color: @bg0;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    16px;
+    width:            90%;
+    height:           350px;
+    location:         center;
+    anchor:           center;
+    padding:          12px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          10px;
+}
+
+inputbar {
+    background-color: @bg1;
+    border-radius:    8px;
+    padding:          8px 14px;
+    children:         [ prompt, entry ];
+    spacing:          8px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg0;
+    placeholder:      "Search wallpapers...";
+    placeholder-color: @fg1;
+}
+
+listview {
+    background-color: transparent;
+    columns:          5;
+    lines:            1;
+    spacing:          8px;
+    scrollbar:        false;
+    fixed-height:     true;
+    fixed-columns:    true;
+    layout:           vertical;
+}
+
+element {
+    background-color: @bg1;
+    border-radius:    10px;
+    padding:          6px;
+    orientation:      vertical;
+    spacing:          4px;
+    cursor:           pointer;
+}
+
+element selected {
+    background-color: @bg1;
+    border:           2px;
+    border-color:     @accent;
+}
+
+element-icon {
+    size:             200px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    text-color:       @fg1;
+    font:             "JetBrainsMono Nerd Font 9";
+}
