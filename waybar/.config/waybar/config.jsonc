@@ -26,6 +26,9 @@
     // ── Workspaces ──────────────────────────────────
     "hyprland/workspaces": {
         "disable-scroll": true,
+        "persistent-workspaces": {
+                "*": 5
+            },
         "format": "{icon}",
         "format-icons": {
             "1":  "१",

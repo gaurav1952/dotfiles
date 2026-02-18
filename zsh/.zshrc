@@ -166,12 +166,13 @@ alias glog='git log --oneline --graph --decorate'
 alias gitorigin='git remote get-url origin'
 
 # sys 
-alias i='paru -S'
-alias s='paru -Ss'
+#alias i='paru -S'
+#alias s='paru -Ss'
 alias r='sudo pacman -R'
 alias rr='sudo pacman -Rns'
-alias p='sudo pacman'
-
+alias i='sudo pacman -S'
+alias s='sudo pacman -Ss'
+alias q='sudo pacman -Qs'
 # Directory and file management
 # alias mkdir='mkdir -p'
 # alias rm='rm -i'

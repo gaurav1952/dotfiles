@@ -1,50 +1,124 @@
-* {
-	background-image: none;
-	box-shadow: none;
-}
+/* ╔══════════════════════════════════════════════════════╗
+   ║   wlogout · Catppuccin Mocha · 2 rows × 3            ║
+   ║   Default wlogout layout — no flags needed           ║
+   ╚══════════════════════════════════════════════════════╝ */
 
 window {
-	background-color: rgba(12, 12, 12, 0.9);
+    background-color: rgba(17, 17, 27, 0.85);
 }
 
 button {
-    border-radius: 0;
-    border-color: black;
-	text-decoration-color: #FFFFFF;
-    color: #FFFFFF;
-	background-color: #1E1E1E;
-	border-style: solid;
-	border-width: 1px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
+    min-width:  160px;
+    min-height: 160px;
+
+    /* 2 rows: smaller margin to center the 2×3 grid */
+    margin: 60px 20px;
+
+    background-color: rgba(24, 24, 37, 0.95);
+    border-radius:    24px;
+    border:           1px solid rgba(49, 50, 68, 0.55);
+
+    color:       rgba(49, 50, 68, 0.00);
+    font-family: "JetBrains Mono", "Iosevka", monospace;
+    font-size:   12px;
+    font-weight: 600;
+
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-size:     42px 42px;
+
+    transition:
+        min-height          320ms cubic-bezier(0.25, 1.0, 0.5, 1),
+        min-width           320ms cubic-bezier(0.25, 1.0, 0.5, 1),
+        margin              320ms cubic-bezier(0.25, 1.0, 0.5, 1),
+        background-color    280ms ease,
+        border-color        280ms ease,
+        color               220ms ease,
+        background-size     280ms ease,
+        background-position 280ms ease;
 }
 
-button:focus, button:active, button:hover {
-	background-color: #3700B3;
-	outline-style: none;
+button:active {
+    background-color: rgba(17, 17, 27, 0.98);
+    border-color:     rgba(49, 50, 68, 0.80);
+    min-height:       160px;
+    margin:           120px 20px;
 }
 
-#lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+/* ── LOCK — Mauve ─────────────────────────────────────── */
+#lock { background-image: url("icons/lock.png"); }
+#lock:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(203, 166, 247, 0.13);
+    border-color:        rgba(203, 166, 247, 0.65);
+    color:               #cba6f7;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }
 
-#logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+/* ── HIBERNATE — Sapphire ─────────────────────────────── */
+#hibernate { background-image: url("icons/hibernate.png"); }
+#hibernate:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(116, 199, 236, 0.13);
+    border-color:        rgba(116, 199, 236, 0.65);
+    color:               #74c7ec;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }
 
-#suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+/* ── LOGOUT — Peach ───────────────────────────────────── */
+#logout { background-image: url("icons/logout.png"); }
+#logout:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(250, 179, 135, 0.13);
+    border-color:        rgba(250, 179, 135, 0.65);
+    color:               #fab387;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }
 
-#hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+/* ── SHUTDOWN — Red ───────────────────────────────────── */
+#shutdown { background-image: url("icons/shutdown.png"); }
+#shutdown:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(243, 139, 168, 0.13);
+    border-color:        rgba(243, 139, 168, 0.65);
+    color:               #f38ba8;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }
 
-#shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+/* ── SUSPEND — Green ──────────────────────────────────── */
+#suspend { background-image: url("icons/suspend.png"); }
+#suspend:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(166, 227, 161, 0.13);
+    border-color:        rgba(166, 227, 161, 0.65);
+    color:               #a6e3a1;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }
 
-#reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+/* ── REBOOT — Yellow ──────────────────────────────────── */
+#reboot { background-image: url("icons/reboot.png"); }
+#reboot:hover {
+    min-height:          220px;
+    min-width:           200px;
+    margin:              90px 20px;
+    background-color:    rgba(249, 226, 175, 0.13);
+    border-color:        rgba(249, 226, 175, 0.65);
+    color:               #f9e2af;
+    background-position: center 35%;
+    background-size:     50px 50px;
 }

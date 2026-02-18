@@ -26,4 +26,5 @@ CHOSEN=$(echo "$CONFIGS" | rofi -dmenu \
 CONFIG_PATH="$DOTFILES_DIR/$CHOSEN"
 
 # Open in vscodium
-vscodium "$CONFIG_PATH" &
+#kitty vi "$CONFIG_PATH" 
+vscodium "$CONFIG_PATH"
