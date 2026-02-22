@@ -1,6 +1,5 @@
 /* ============================================================
-   WAYBAR — CATPPUCCIN MOCHA SOLID
-   Clean, solid, minimal — bigger icons, Devanagari workspaces
+   WAYBAR — CATPPUCCIN MOCHA 
    ============================================================ */
 
 /* ── Catppuccin Mocha Palette ─────────────────────────── */
@@ -63,6 +62,7 @@ window#waybar.hidden {
 #pulseaudio,
 #idle_inhibitor,
 #tray,
+#mpris,
 #custom-media,
 #custom-notification,
 #custom-power {
@@ -109,7 +109,25 @@ window#waybar.hidden {
     background: @red;
     color: @crust;
 }
+/* ── Media (mpris) ────────────────────────────────────── */
+#mpris {
+    color: @green;
+    background: @surface0;
+    font-style: normal;
+}
 
+#mpris.playing {
+    color: @green;
+}
+
+#mpris.paused {
+    color: @overlay0;
+    font-style: italic;
+}
+
+#mpris.stopped {
+    color: @surface2;
+}
 /* ── Clock ────────────────────────────────────────────── */
 #clock {
     background: @surface0;

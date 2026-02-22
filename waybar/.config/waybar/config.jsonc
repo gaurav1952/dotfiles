@@ -9,7 +9,8 @@
     "modules-left": [
         "clock",
         "tray",
-        "custom/media"
+        "custom/media",
+        "mpris"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -43,7 +44,24 @@
             "10": "१०"
         }
     },
-
+    // ── Mpris ────────────────────────────────────────
+    "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "spotify": "",
+        "mpv": "🎵",
+        "firefox": "󰈹"
+    },
+    "status-icons": {
+        "paused": "⏸"
+    },
+    "dynamic-len": 30,
+    "dynamic-order": ["title", "artist"],
+    "interval": "once",
+    "signal": 5
+},
     // ── Clock ────────────────────────────────────────
     "clock": {
         "format": "󰥔  {:%I:%M %p}",

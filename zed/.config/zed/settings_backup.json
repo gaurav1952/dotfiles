@@ -1,0 +1,85 @@
+{
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+
+  // === VIM ===
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true,
+    "use_smartcase_find": true,
+  },
+
+  // === FONTS ===
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_family": "JetBrainsMono Nerd Font", // or "Zed Mono", "Fira Code"
+  "buffer_font_features": { "calt": true }, // ligatures
+
+  // === THEME ===
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+  },
+
+  // === EDITOR ===
+  "relative_line_numbers": true, // essential for vim motions
+  "scrollbar": { "show": "never" },
+  "scroll_beyond_last_line": "one_page",
+  "cursor_blink": false,
+  "confirm_quit": true,
+  "restore_on_startup": "last_session",
+
+  // === INDENT / FORMAT ===
+  "tab_size": 2,
+  "hard_tabs": false,
+  "format_on_save": "on",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "formatter": "language_server",
+
+  // === INLAY HINTS (like nvim LSP inlay hints) ===
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+  },
+
+  // === GIT ===
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 600,
+    },
+  },
+
+  // === TERMINAL ===
+  "terminal": {
+    "shell": { "program": "zsh" }, // or fish, bash
+    "font_size": 14,
+    "copy_on_select": true,
+  },
+
+  // === FILE PANEL ===
+  "project_panel": {
+    "dock": "left",
+    "git_status": true,
+    "auto_reveal_entries": true,
+  },
+
+  // === LANGUAGE SPECIFIC ===
+  "languages": {
+    "Python": { "tab_size": 4, "formatter": "language_server" },
+    "Rust": { "tab_size": 4, "format_on_save": "on" },
+    "Markdown": { "format_on_save": "off", "soft_wrap": "editor_width" },
+  },
+}

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Wallpaper picker using rofi dmenu + swww
 
-WALLPAPER_DIR="$HOME/Pictures/wallpaper"
+WALLPAPER_DIR="$HOME/Pictures/wallpaper"  # Change it for to your wallpaper dir
 
 # Transition settings — edit these to change effect!
 # Types: fade, wipe, wave, grow, outer, random
@@ -48,4 +48,7 @@ swww img "$WALLPAPER_PATH" \
 mkdir -p "$HOME/.config/swww"
 echo "$WALLPAPER_PATH" > "$HOME/.config/swww/last_wallpaper"
 
-notify-send "Wallpaper Changed" "$(basename "$WALLPAPER_PATH")" -t 2000
+# notify-send "Wallpaper Changed" "$(basename "$WALLPAPER_PATH")" -t 2000
+notify-send "Wallpaper Changed" "$(basename "$WALLPAPER_PATH")" \
+    -t 2000 \
+    -i "$WALLPAPER_PATH"
