@@ -1,0 +1,142 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "layer-shell": true,
+  "cssPriority": "application",
+  "control-center-margin-top": 8,
+  "control-center-margin-bottom": 8,
+  "control-center-margin-right": 8,
+  "control-center-margin-left": 0,
+  "notification-inline-replies": false,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 5,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "control-center-width": 420,
+  "control-center-height": 800,
+  "notification-window-width": 380,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+
+  "widgets": [
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "mpris",
+    "dnd",
+    "title",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "󰐥",
+          "tooltip": "Power Menu",
+          "type": "normal",
+          "command": "swaync-client -cp && wlogout"
+        },
+        {
+          "label": "󰌾",
+          "tooltip": "Lock Screen",
+          "type": "normal",
+          "command": "swaync-client -cp && hyprlock"
+        },
+        {
+          "label": "󱓻",
+          "tooltip": "Color Picker",
+          "type": "normal",
+          "command": "swaync-client -cp && hyprpicker -a"
+        },
+        {
+          "label": "󰛨",
+          "tooltip": "Blue Light Filter",
+          "type": "toggle",
+          "active": false,
+          "update-command": "~/.config/swaync/scripts/hyprsunset-state.sh",
+          "command": "~/.config/swaync/scripts/toggle-hyprsunset.sh"
+        },
+        {
+          "label": "󰖩",
+          "tooltip": "WiFi",
+          "type": "toggle",
+          "active": false,
+          "update-command": "~/.config/swaync/scripts/wifi-state.sh",
+          "command": "swaync-client -cp && ~/.config/rofi/scripts/wifi.sh"
+        },
+        {
+          "label": "󰂯",
+          "tooltip": "Bluetooth",
+          "type": "toggle",
+          "active": false,
+          "update-command": "~/.config/swaync/scripts/bluetooth-state.sh",
+          "command": "swaync-client -cp && ~/.config/rofi/scripts/bluetooth.sh"
+        },
+        {
+          "label": "󰎆",
+          "tooltip": "Previous",
+          "type": "normal",
+          "command": "playerctl previous"
+        },
+        {
+          "label": "󰐎",
+          "tooltip": "Play / Pause",
+          "type": "normal",
+          "command": "playerctl play-pause"
+        },
+        {
+          "label": "󰒭",
+          "tooltip": "Next",
+          "type": "normal",
+          "command": "playerctl next"
+        },
+        {
+          "label": "󰝟",
+          "tooltip": "Stop",
+          "type": "normal",
+          "command": "playerctl stop"
+        }
+      ]
+    },
+
+    "volume": {
+      "label": "󰕾 ",
+      "show-per-app": false
+    },
+
+    "backlight": {
+      "label": "󰃟 ",
+      "device": "intel_backlight",
+      "subsystem": "backlight",
+      "min": 1
+    },
+
+    "mpris": {
+      "show-album-art": "when-available",
+      "autohide": true
+    },
+
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "󰆴 Clear All"
+    },
+
+    "notifications": {}
+  }
+}

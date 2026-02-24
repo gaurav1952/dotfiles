@@ -1,0 +1,238 @@
+/* ============================================================
+   WAYBAR — CATPPUCCIN MOCHA 
+   ============================================================ */
+
+/* ── Catppuccin Mocha Palette ─────────────────────────── */
+@define-color base    #1e1e2e;
+@define-color mantle  #181825;
+@define-color crust   #11111b;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+@define-color overlay0 #6c7086;
+@define-color text    #cdd6f4;
+@define-color subtext #bac2de;
+@define-color lavender #b4befe;
+@define-color blue    #89b4fa;
+@define-color sapphire #74c7ec;
+@define-color sky     #89dceb;
+@define-color teal    #94e2d5;
+@define-color green   #a6e3a1;
+@define-color yellow  #f9e2af;
+@define-color peach   #fab387;
+@define-color red     #f38ba8;
+@define-color maroon  #eba0ac;
+@define-color mauve   #cba6f7;
+@define-color pink    #f5c2e7;
+
+/* ── Global ───────────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* ── Bar ──────────────────────────────────────────────── */
+window#waybar {
+    background-color: @crust;
+    color: @text;
+    border-bottom: 2px solid @surface0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ── Left / Center / Right containers ────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    padding: 0 6px;
+}
+
+/* ── Shared pill style ────────────────────────────────── */
+#clock,
+#battery,
+#temperature,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#tray,
+#mpris,
+#custom-media,
+#custom-notification,
+#custom-power {
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    color: @text;
+    background-color: @surface0;
+    font-size: 13px;
+}
+
+/* ── Workspaces ───────────────────────────────────────── */
+#workspaces {
+    margin: 0;
+    padding: 0 4px;
+    background: transparent;
+}
+
+#workspaces button {
+    padding: 2px 12px;
+    margin: 5px 2px;
+    color: @overlay0;
+    background: @surface0;
+    border-radius: 8px;
+    font-size: 17px;  /* bigger Devanagari */
+    font-weight: 600;
+    transition: all 0.2s ease;
+    min-width: 36px;
+}
+
+#workspaces button:hover {
+    background: @surface1;
+    color: @text;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background: @mauve;
+    color: @crust;
+    font-weight: 700;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @crust;
+}
+/* ── Media (mpris) ────────────────────────────────────── */
+#mpris {
+    color: @green;
+    background: @surface0;
+    font-style: normal;
+}
+
+#mpris.playing {
+    color: @green;
+}
+
+#mpris.paused {
+    color: @overlay0;
+    font-style: italic;
+}
+
+#mpris.stopped {
+    color: @surface2;
+}
+/* ── Clock ────────────────────────────────────────────── */
+#clock {
+    background: @surface0;
+    color: @blue;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* ── Battery ──────────────────────────────────────────── */
+#battery {
+    background: @surface0;
+    color: @green;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @teal;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation: blink 0.6s steps(1) infinite alternate;
+}
+
+@keyframes blink {
+    0%   { background: @surface0; }
+    100% { background: @red; color: @crust; }
+}
+
+/* ── Temperature ──────────────────────────────────────── */
+#temperature {
+    color: @peach;
+}
+
+#temperature.critical {
+    color: @red;
+    background: @surface1;
+}
+
+/* ── Network ──────────────────────────────────────────── */
+#network {
+    color: @sapphire;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+/* ── Pulseaudio ───────────────────────────────────────── */
+#pulseaudio {
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+}
+
+/* ── Idle Inhibitor ───────────────────────────────────── */
+#idle_inhibitor {
+    color: @overlay0;
+}
+
+#idle_inhibitor.activated {
+    color: @green;
+    background: @surface1;
+}
+
+/* ── Tray ─────────────────────────────────────────────── */
+#tray {
+    background: @surface0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @surface1;
+}
+
+/* ── Media ────────────────────────────────────────────── */
+#custom-media {
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+    background: @surface0;
+    color: @green;
+    /* max-width: 200px; */
+}
+
+/* ── Notification ─────────────────────────────────────── */
+#custom-notification {
+    background: @surface0;
+    color: @mauve;
+    font-size: 16px;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 8px;
+}
+
+#custom-notification.dnd {
+    color: @overlay0;
+}

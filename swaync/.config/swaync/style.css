@@ -1,291 +1,295 @@
-/* =============================================
-   SwayNC - Catppuccin Mocha
-   ============================================= */
+/* Clean Minimal Aesthetic - GTK Compatible */
 
 * {
-  font-family: "JetBrainsMono Nerd Font", sans-serif;
-  font-size: 13px;
-  --mpris-album-art-icon-size: 56px;
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
-/* ── Variables ── */
-@define-color base   #1e1e2e;
-@define-color mantle #181825;
-@define-color crust  #11111b;
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-@define-color overlay0 #6c7086;
-@define-color text   #cdd6f4;
-@define-color subtext #bac2de;
-@define-color lavender #b4befe;
-@define-color mauve  #cba6f7;
-@define-color pink   #f5c2e7;
-@define-color red    #f38ba8;
-@define-color peach  #fab387;
-@define-color yellow #f9e2af;
-@define-color green  #a6e3a1;
-@define-color teal   #94e2d5;
-@define-color blue   #89b4fa;
+.blank-window {
+  background: transparent;
+}
 
-/* ── Control Center ── */
+/* ═══ CONTROL CENTER ═══ */
 .control-center {
-  background-color: alpha(@base, 0.92);
-  border-radius: 16px;
-  border: 1px solid alpha(@mauve, 0.3);
-  box-shadow: 0 8px 32px alpha(black, 0.4);
-  padding: 12px;
-  color: @text;
-}
-
-/* ── Buttons Grid ── */
-.widget-buttons-grid {
-  background-color: alpha(@surface0, 0.5);
+  background: rgba(26, 27, 38, 0.95);
+  border: 2px solid rgba(94, 129, 172, 0.4);
   border-radius: 12px;
-  padding: 8px;
-  margin-bottom: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 0;
 }
 
-.widget-buttons-grid flowboxchild > button {
-  background-color: alpha(@surface0, 0.8);
-  border-radius: 10px;
-  border: 1px solid transparent;
-  color: @subtext;
-  font-size: 26px;
-  min-width: 72px;
-  min-height: 60px;
-  margin: 4px;
-  transition: all 200ms ease;
+/* ═══ BUTTONS GRID ═══ */
+.control-center .widget-buttons-grid {
+  background: transparent;
+  padding: 16px;
+  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
 }
 
-.widget-buttons-grid flowboxchild > button:hover {
-  background-color: alpha(@surface1, 0.9);
-  border-color: alpha(@mauve, 0.4);
-  color: @text;
+.control-center .widget-buttons-grid > flowbox {
+  margin: -6px;
 }
 
-.widget-buttons-grid flowboxchild > button:active {
-  background-color: alpha(@mauve, 0.3);
-  border-color: @mauve;
-  color: @mauve;
+.control-center .widget-buttons-grid > flowbox > flowboxchild {
+  padding: 6px;
 }
 
-/* Active toggle state — wifi, bluetooth, hyprsunset */
-.widget-buttons-grid flowboxchild > button.toggle:checked {
-  background-color: alpha(@mauve, 0.25);
-  border-color: @mauve;
-  color: @mauve;
-}
-
-.widget-buttons-grid flowboxchild > button.toggle:checked:hover {
-  background-color: alpha(@mauve, 0.4);
-}
-
-/* ── Volume & Backlight Sliders ── */
-.widget-volume,
-.widget-backlight {
-  background-color: alpha(@surface0, 0.5);
+.control-center .widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(30, 31, 44, 0.9);
+  color: rgba(94, 129, 172, 1);
+  border: 1px solid rgba(94, 129, 172, 0.4);
   border-radius: 12px;
-  padding: 8px 14px;
-  margin-bottom: 8px;
+  padding: 0;
+  font-size: 24px;
+  min-width: 75px;
+  min-height: 75px;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.widget-volume label,
-.widget-backlight label {
-  color: @mauve;
-  font-size: 16px;
-  min-width: 24px;
+.control-center .widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: rgba(94, 129, 172, 0.2);
+  border-color: rgba(94, 129, 172, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 129, 172, 0.3);
 }
 
-scale {
-  min-height: 20px;
+.control-center .widget-buttons-grid > flowbox > flowboxchild > button:active {
+  transform: translateY(0);
 }
 
-scale trough {
-  background-color: alpha(@surface1, 0.8);
-  border-radius: 10px;
-  min-height: 6px;
-}
-
-scale highlight {
-  background-color: @mauve;
-  border-radius: 10px;
-}
-
-scale slider {
-  background-color: @text;
-  border-radius: 50%;
-  min-width: 16px;
-  min-height: 16px;
-  box-shadow: 0 1px 4px alpha(black, 0.3);
-}
-
-scale slider:hover {
-  background-color: @mauve;
-}
-
-/* ── MPRIS ── */
-.widget-mpris {
-  background-color: alpha(@surface0, 0.5);
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 8px;
+/* ═══ MUSIC PLAYER ═══ */
+.control-center .widget-mpris {
+  background: transparent;
+  padding: 16px;
+  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
 }
 
 .widget-mpris-player {
-  padding: 4px 8px;
-  border-radius: 10px;
+  background: rgba(30, 31, 44, 0.9);
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.widget-mpris-album-art {
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .widget-mpris-title {
-  font-weight: bold;
   font-size: 14px;
-  color: @text;
+  font-weight: 700;
+  color: rgba(192, 202, 245, 1);
+  margin-top: 8px;
 }
 
 .widget-mpris-subtitle {
   font-size: 12px;
-  color: @subtext;
+  color: rgba(130, 137, 172, 1);
+  margin-top: 4px;
 }
 
-/* ── DND Toggle ── */
-.widget-dnd {
-  background-color: alpha(@surface0, 0.5);
-  border-radius: 12px;
-  padding: 8px 12px;
-  margin-bottom: 8px;
-}
-
-.widget-dnd > switch {
-  border-radius: 20px;
-  background-color: @surface1;
-  border: 1px solid @surface2;
-}
-
-.widget-dnd > switch:checked {
-  background-color: @mauve;
-  border-color: @mauve;
-}
-
-.widget-dnd > switch slider {
-  background-color: @text;
-  border-radius: 50%;
-  min-width: 18px;
-  min-height: 18px;
-}
-
-.widget-dnd > label {
-  color: @text;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-/* ── Notifications ── */
-.widget-notifications {
-  border-radius: 12px;
-}
-
-/* Notification List Header / Clear All */
-.widget-notifications-clear-all-button {
-  background-color: alpha(@surface0, 0.6);
+.widget-mpris > box > button {
+  background: rgba(94, 129, 172, 0.15);
+  color: rgba(192, 202, 245, 1);
+  border: 1px solid rgba(94, 129, 172, 0.4);
   border-radius: 8px;
-  border: 1px solid transparent;
-  color: @subtext;
-  font-size: 12px;
-  padding: 4px 10px;
-  margin-bottom: 6px;
+  padding: 10px 14px;
+  margin: 6px 4px;
+  font-size: 16px;
   transition: all 200ms ease;
 }
 
-.widget-notifications-clear-all-button:hover {
-  background-color: alpha(@red, 0.2);
-  border-color: alpha(@red, 0.4);
-  color: @red;
+.widget-mpris > box > button:hover {
+  background: rgba(94, 129, 172, 0.3);
+  border-color: rgba(94, 129, 172, 1);
+  color: rgba(94, 129, 172, 1);
 }
 
-/* Individual Notification */
+/* ═══ DO NOT DISTURB ═══ */
+.control-center .widget-dnd {
+  background: transparent;
+  padding: 16px;
+  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+}
+
+.widget-dnd > switch {
+  background: rgba(30, 31, 44, 0.9);
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 24px;
+  min-width: 48px;
+  min-height: 26px;
+}
+
+.widget-dnd > switch:checked {
+  background: rgba(229, 200, 144, 1);
+  border-color: rgba(229, 200, 144, 1);
+}
+
+.widget-dnd > switch slider {
+  background: rgba(130, 137, 172, 1);
+  border-radius: 50%;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 3px;
+  transition: all 200ms ease;
+}
+
+.widget-dnd > switch:checked slider {
+  background: rgba(26, 27, 38, 1);
+  margin-left: 23px;
+}
+
+.widget-dnd > label {
+  color: rgba(192, 202, 245, 1);
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+/* ═══ NOTIFICATION TITLE ═══ */
+.control-center .widget-title {
+  background: transparent;
+  padding: 16px;
+  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+}
+
+.widget-title > box {
+  padding: 10px 14px;
+  background: rgba(30, 31, 44, 0.9);
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 10px;
+}
+
+.widget-title > box > label {
+  color: rgba(192, 202, 245, 1);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.widget-title > box > button {
+  background: transparent;
+  color: rgba(130, 137, 172, 1);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.widget-title > box > button:hover {
+  background: rgba(237, 135, 150, 0.2);
+  color: rgba(237, 135, 150, 1);
+  border-color: rgba(237, 135, 150, 1);
+}
+
+/* ═══ NOTIFICATIONS ═══ */
+.control-center .notification-list {
+  background: transparent;
+  padding: 8px 16px 16px;
+}
+
 .notification {
-  background-color: alpha(@surface0, 0.85);
-  border-radius: 12px;
-  border: 1px solid alpha(@surface1, 0.6);
-  padding: 10px;
-  margin: 4px 0;
+  background: rgba(30, 31, 44, 0.9);
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 8px 0;
   transition: all 200ms ease;
 }
 
 .notification:hover {
-  border-color: alpha(@mauve, 0.4);
+  background: rgba(30, 31, 44, 1);
+  border-color: rgba(94, 129, 172, 1);
+  transform: translateX(-2px);
 }
 
-.notification-summary {
-  font-weight: bold;
+.notification.critical {
+  border-color: rgba(237, 135, 150, 1);
+  border-width: 2px;
+}
+
+.summary {
+  color: rgba(192, 202, 245, 1);
   font-size: 13px;
-  color: @text;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
-.notification-body {
+.body {
+  color: rgba(130, 137, 172, 1);
   font-size: 12px;
-  color: @subtext;
+  line-height: 1.5;
 }
 
-.notification-app-name {
-  font-size: 11px;
-  color: @overlay0;
+.notification-icon {
+  border-radius: 8px;
+  margin-right: 12px;
 }
 
 .notification-time {
+  color: rgba(130, 137, 172, 1);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.notification-action {
+  background: transparent;
+  color: rgba(94, 129, 172, 1);
+  border: 1px solid rgba(94, 129, 172, 0.4);
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 4px 4px 0 0;
   font-size: 11px;
-  color: @overlay0;
+  font-weight: 500;
+  transition: all 200ms ease;
 }
 
-/* Urgency colors */
-.notification.critical {
-  border-color: alpha(@red, 0.6);
-  background-color: alpha(@red, 0.1);
+.notification-action:hover {
+  background: rgba(94, 129, 172, 0.2);
+  border-color: rgba(94, 129, 172, 1);
 }
 
-.notification.low {
-  border-color: alpha(@surface1, 0.4);
-}
-
-/* Close button */
-.notification > box > box > box > button {
-  background-color: transparent;
+.close-button {
+  background: transparent;
+  color: rgba(130, 137, 172, 1);
   border-radius: 50%;
-  border: none;
-  color: @overlay0;
-  padding: 2px;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.notification > box > box > box > button:hover {
-  background-color: alpha(@red, 0.2);
-  color: @red;
-}
-
-/* ── Notification Popup (outside panel) ── */
-.notification-popup {
-  background-color: alpha(@base, 0.92);
-  border-radius: 12px;
-  border: 1px solid alpha(@mauve, 0.3);
-  box-shadow: 0 4px 16px alpha(black, 0.3);
-  padding: 10px;
+  padding: 4px;
   margin: 4px;
+  transition: all 200ms ease;
 }
 
-/* ── Scrollbar ── */
+.close-button:hover {
+  background: rgba(237, 135, 150, 0.2);
+  color: rgba(237, 135, 150, 1);
+}
+
+/* ═══ SCROLLBAR ═══ */
 scrollbar {
-  background-color: transparent;
-  min-width: 4px;
+  background: transparent;
+}
+
+scrollbar trough {
+  background: rgba(94, 129, 172, 0.1);
+  border-radius: 8px;
 }
 
 scrollbar slider {
-  background-color: alpha(@surface2, 0.6);
-  border-radius: 4px;
-  min-width: 4px;
+  background: rgba(94, 129, 172, 1);
+  border-radius: 8px;
+  min-height: 40px;
 }
 
 scrollbar slider:hover {
-  background-color: @mauve;
+  background: rgba(94, 129, 172, 0.8);
+}
+
+/* ═══ POPUP NOTIFICATIONS ═══ */
+.notification-window {
+  background: transparent;
+}
+
+.floating-notifications .notification {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }

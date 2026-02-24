@@ -5,6 +5,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.phpenv/bin:$PATH"
 
 # Color variables
 COLOR_RED='\e[31m'
@@ -141,6 +142,7 @@ bindkey '^I' autosuggest-accept
 #################################################
 source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
+eval "$(phpenv init -)"
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
