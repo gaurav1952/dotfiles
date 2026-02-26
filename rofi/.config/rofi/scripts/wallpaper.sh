@@ -1,7 +1,7 @@
 #!/bin/bash
 # Wallpaper picker using rofi dmenu + swww
 
-WALLPAPER_DIR="$HOME/Pictures/wallpaper"  # Change it for to your wallpaper dir
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"  # Change it for to your wallpaper dir
 
 # Transition settings — edit these to change effect!
 # Types: fade, wipe, wave, grow, outer, random

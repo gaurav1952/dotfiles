@@ -16,7 +16,7 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        // "idle_inhibitor",
+        "idle_inhibitor",
         "pulseaudio",
         "network",
         "temperature",
