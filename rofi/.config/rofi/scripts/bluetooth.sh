@@ -28,7 +28,7 @@ fi
 
 CHOSEN=$(echo -e "$MENU" | rofi -dmenu \
     -p "󰂯 Bluetooth" \
-    -theme ~/.config/rofi/catppuccin-mocha-list.rasi)
+    -theme ~/.config/rofi/theme-list.rasi)
 
 [ -z "$CHOSEN" ] && exit 0
 

@@ -1,2 +1,2 @@
 #!/bin/bash
-rofi -show drun -theme ~/.config/rofi/catppuccin-mocha.rasi
+rofi -show drun -theme ~/.config/rofi/theme.rasi

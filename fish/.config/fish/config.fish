@@ -1,5 +1,5 @@
 set -g fish_greeting
-
+# set -g autopair_tab false
 if status is-interactive
 
     # Commands to run in interactive sessions can go here
@@ -11,12 +11,13 @@ if status is-interactive
     starship init fish | source
 
 
-    #export
-    fish_add_path /usr/local/go/bin
 
     #aliases
+    #basic aliases
+    alias code 'vscodium'
     alias src 'source ~/.config/fish/config.fish'
-    alias cls clear
+    alias cls 'clear'
+    
     # alias list exa
     alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
     alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
@@ -30,8 +31,29 @@ if status is-interactive
     
 
     #binds
-    bind \t accept-autosuggestion
-    bind \eo complete
+    # bind \t accept-autosuggestion
     bind \cH backward-kill-word
     bind \b backward-kill-word
+    
+    bind \t accept-autosuggestion
+
+    # Shift+Tab = show full list
+    bind \e\[Z 'complete --list'
+    
+    function fish_user_key_bindings
+        bind -e tab
+        bind -e \t
+        bind -e -M insert tab
+        bind -e -M insert \t
+        bind tab accept-autosuggestion
+        bind -M insert \t accept-autosuggestion
+    end
+
+    #export
+    fish_add_path /usr/local/go/bin
+    #loading nvm ( node version manager ) using bass ( fish plugin manager ) 
+    function nvm
+        bass source ~/.nvm/nvm.sh ';' nvm $argv 
+    end
+    
 end

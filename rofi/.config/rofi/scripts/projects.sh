@@ -18,7 +18,7 @@ fi
 
 CHOSEN=$(echo "$PROJECTS" | rofi -dmenu \
     -p " Projects" \
-    -theme ~/.config/rofi/catppuccin-mocha-list.rasi \
+    -theme ~/.config/rofi/theme-list.rasi \
     -i)
 
 [ -z "$CHOSEN" ] && exit 0

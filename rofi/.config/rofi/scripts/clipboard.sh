@@ -4,5 +4,5 @@
 
 cliphist list | rofi -dmenu \
     -p "󰅍 Clipboard" \
-    -theme ~/.config/rofi/catppuccin-mocha-list.rasi \
+    -theme ~/.config/rofi/theme-list.rasi \
     | cliphist decode | wl-copy

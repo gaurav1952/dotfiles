@@ -18,7 +18,7 @@ fi
 
 CHOSEN=$(echo "$CONFIGS" | rofi -dmenu \
     -p "󰘓 Dotfiles" \
-    -theme ~/.config/rofi/catppuccin-mocha-list.rasi \
+    -theme ~/.config/rofi/theme-list.rasi \
     -i)
 
 [ -z "$CHOSEN" ] && exit 0

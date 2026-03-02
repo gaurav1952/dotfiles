@@ -1,18 +1,14 @@
 #!/bin/bash
 # Wallpaper picker using rofi dmenu + swww
-
 WALLPAPER_DIR="$HOME/Pictures/wallpapers"  # Change it for to your wallpaper dir
-
 # Transition settings — edit these to change effect!
 # Types: fade, wipe, wave, grow, outer, random
 TRANSITION_TYPE="random"
 TRANSITION_DURATION="1.5"
 TRANSITION_FPS="60"
 TRANSITION_ANGLE="30"  # 0 = Left to Right , 90 = Top to Bottom 45 = Diagonal. Only in wipe and wave 
-
 # Make sure swww daemon is running
 swww query 2>/dev/null || (swww-daemon & sleep 0.5)
-
 # Build list with absolute paths as icons
 CHOSEN=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \
     \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
@@ -27,16 +23,11 @@ CHOSEN=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \
         -show-icons \
         -no-custom \
         -i)
-
 [ -z "$CHOSEN" ] && exit 0
-
 # Strip any trailing whitespace
 CHOSEN=$(echo "$CHOSEN" | xargs)
-
 WALLPAPER_PATH="$WALLPAPER_DIR/$CHOSEN"
-
 [ ! -f "$WALLPAPER_PATH" ] && exit 0
-
 # Apply wallpaper
 swww img "$WALLPAPER_PATH" \
     --transition-type "$TRANSITION_TYPE" \
@@ -44,11 +35,27 @@ swww img "$WALLPAPER_PATH" \
     --transition-fps "$TRANSITION_FPS" \
     --transition-angle "$TRANSITION_ANGLE"
 
+# ── Matugen — generate Material You colors from wallpaper ──────────────────
+matugen image "$WALLPAPER_PATH"
+
+# ── Reload apps to pick up new colors ──────────────────────────────────────
+# Waybar — kill and restart
+pkill waybar && waybar &
+
+# Swaync - kill and restart
+pkill swaync && swaync &
+
+# Hyprland — reload config (picks up new colors.conf)
+hyprctl reload
+
+# Kitty — reload all open kitty instances
+kill -SIGUSR1 $(pidof kitty) 2>/dev/null
+# ───────────────────────────────────────────────────────────────────────────
+
 # Save last wallpaper
 mkdir -p "$HOME/.config/swww"
 echo "$WALLPAPER_PATH" > "$HOME/.config/swww/last_wallpaper"
 
-# notify-send "Wallpaper Changed" "$(basename "$WALLPAPER_PATH")" -t 2000
 notify-send "Wallpaper Changed" "$(basename "$WALLPAPER_PATH")" \
     -t 2000 \
     -i "$WALLPAPER_PATH"

@@ -1,43 +1,38 @@
-/* Clean Minimal Aesthetic - GTK Compatible */
+@import "colors.css";
 
+/* Clean Minimal Aesthetic - GTK Compatible */
 * {
   all: unset;
   font-family: "JetBrainsMono Nerd Font", monospace;
 }
-
 .blank-window {
   background: transparent;
 }
-
 /* ═══ CONTROL CENTER ═══ */
 .control-center {
-  background: rgba(26, 27, 38, 0.95);
-  border: 2px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@base, 0.95);
+  border: 2px solid alpha(@accent, 0.4);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   padding: 0;
   margin: 0;
 }
-
 /* ═══ BUTTONS GRID ═══ */
 .control-center .widget-buttons-grid {
   background: transparent;
   padding: 16px;
-  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+  border-bottom: 1px solid alpha(@accent, 0.4);
 }
-
 .control-center .widget-buttons-grid > flowbox {
   margin: -6px;
 }
-
 .control-center .widget-buttons-grid > flowbox > flowboxchild {
   padding: 6px;
 }
-
 .control-center .widget-buttons-grid > flowbox > flowboxchild > button {
-  background: rgba(30, 31, 44, 0.9);
-  color: rgba(94, 129, 172, 1);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@surface, 0.9);
+  color: @accent;
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 12px;
   padding: 0;
   font-size: 24px;
@@ -45,199 +40,218 @@
   min-height: 75px;
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .control-center .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: rgba(94, 129, 172, 0.2);
-  border-color: rgba(94, 129, 172, 1);
+  background: alpha(@accent, 0.2);
+  border-color: @accent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(94, 129, 172, 0.3);
+  box-shadow: 0 4px 12px alpha(@accent, 0.3);
 }
-
 .control-center .widget-buttons-grid > flowbox > flowboxchild > button:active {
   transform: translateY(0);
 }
-
 /* ═══ MUSIC PLAYER ═══ */
 .control-center .widget-mpris {
   background: transparent;
   padding: 16px;
-  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+  border-bottom: 1px solid alpha(@accent, 0.4);
 }
-
 .widget-mpris-player {
-  background: rgba(30, 31, 44, 0.9);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@surface, 0.9);
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 12px;
   padding: 14px;
 }
-
 .widget-mpris-album-art {
   border-radius: 8px;
   margin-bottom: 12px;
 }
-
 .widget-mpris-title {
   font-size: 14px;
   font-weight: 700;
-  color: rgba(192, 202, 245, 1);
+  color: @text;
   margin-top: 8px;
 }
-
 .widget-mpris-subtitle {
   font-size: 12px;
-  color: rgba(130, 137, 172, 1);
+  color: @subtext;
   margin-top: 4px;
 }
-
 .widget-mpris > box > button {
-  background: rgba(94, 129, 172, 0.15);
-  color: rgba(192, 202, 245, 1);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@accent, 0.15);
+  color: @text;
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 8px;
   padding: 10px 14px;
   margin: 6px 4px;
   font-size: 16px;
   transition: all 200ms ease;
 }
-
 .widget-mpris > box > button:hover {
-  background: rgba(94, 129, 172, 0.3);
-  border-color: rgba(94, 129, 172, 1);
-  color: rgba(94, 129, 172, 1);
+  background: alpha(@accent, 0.3);
+  border-color: @accent;
+  color: @accent;
 }
-
 /* ═══ DO NOT DISTURB ═══ */
 .control-center .widget-dnd {
   background: transparent;
   padding: 16px;
-  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+  border-bottom: 1px solid alpha(@accent, 0.4);
 }
-
 .widget-dnd > switch {
-  background: rgba(30, 31, 44, 0.9);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@surface, 0.9);
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 24px;
   min-width: 48px;
   min-height: 26px;
 }
-
 .widget-dnd > switch:checked {
-  background: rgba(229, 200, 144, 1);
-  border-color: rgba(229, 200, 144, 1);
+  background: @yellow;
+  border-color: @yellow;
 }
-
 .widget-dnd > switch slider {
-  background: rgba(130, 137, 172, 1);
+  background: @subtext;
   border-radius: 50%;
   min-width: 18px;
   min-height: 18px;
   margin: 3px;
   transition: all 200ms ease;
 }
-
 .widget-dnd > switch:checked slider {
-  background: rgba(26, 27, 38, 1);
+  background: @base;
   margin-left: 23px;
 }
-
 .widget-dnd > label {
-  color: rgba(192, 202, 245, 1);
+  color: @text;
   font-size: 13px;
   font-weight: 500;
   margin-left: 12px;
 }
-
+/* ═══ SLIDERS ═══ */
+.control-center .widget-volume,
+.control-center .widget-backlight {
+  background: transparent;
+  padding: 10px 16px;
+  border-bottom: 1px solid alpha(@accent, 0.4);
+}
+.control-center .widget-volume label,
+.control-center .widget-backlight label {
+  color: @accent;
+  font-size: 18px;
+  margin-right: 12px;
+  min-width: 24px;
+}
+.control-center .widget-volume scale,
+.control-center .widget-backlight scale {
+  margin: 0 4px;
+}
+.control-center .widget-volume scale trough,
+.control-center .widget-backlight scale trough {
+  background: alpha(@accent, 0.15);
+  border-radius: 8px;
+  min-height: 6px;
+}
+.control-center .widget-volume scale trough highlight,
+.control-center .widget-backlight scale trough highlight {
+  background: @accent;
+  border-radius: 8px;
+}
+.control-center .widget-volume scale trough slider,
+.control-center .widget-backlight scale trough slider {
+  background: @text;
+  border: 2px solid @accent;
+  border-radius: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  transition: all 200ms ease;
+}
+.control-center .widget-volume scale trough slider:hover,
+.control-center .widget-backlight scale trough slider:hover {
+  background: @accent;
+  box-shadow: 0 0 8px alpha(@accent, 0.5);
+}
 /* ═══ NOTIFICATION TITLE ═══ */
 .control-center .widget-title {
   background: transparent;
   padding: 16px;
-  border-bottom: 1px solid rgba(94, 129, 172, 0.4);
+  border-bottom: 1px solid alpha(@accent, 0.4);
 }
-
 .widget-title > box {
   padding: 10px 14px;
-  background: rgba(30, 31, 44, 0.9);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@surface, 0.9);
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 10px;
 }
-
 .widget-title > box > label {
-  color: rgba(192, 202, 245, 1);
+  color: @text;
   font-size: 13px;
   font-weight: 600;
 }
-
 .widget-title > box > button {
   background: transparent;
-  color: rgba(130, 137, 172, 1);
+  color: @subtext;
   font-size: 12px;
   font-weight: 500;
   padding: 4px 12px;
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 8px;
   transition: all 200ms ease;
 }
-
 .widget-title > box > button:hover {
-  background: rgba(237, 135, 150, 0.2);
-  color: rgba(237, 135, 150, 1);
-  border-color: rgba(237, 135, 150, 1);
+  background: alpha(@red, 0.2);
+  color: @red;
+  border-color: @red;
 }
-
 /* ═══ NOTIFICATIONS ═══ */
+.control-center-scrollable {
+  overflow-y: scroll;
+}
 .control-center .notification-list {
   background: transparent;
   padding: 8px 16px 16px;
+  min-height: 200px;
+  max-height: 500px;
 }
-
 .notification {
-  background: rgba(30, 31, 44, 0.9);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  background: alpha(@surface, 0.9);
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 10px;
   padding: 12px;
   margin: 8px 0;
   transition: all 200ms ease;
 }
-
 .notification:hover {
-  background: rgba(30, 31, 44, 1);
-  border-color: rgba(94, 129, 172, 1);
+  background: @surface;
+  border-color: @accent;
   transform: translateX(-2px);
 }
-
 .notification.critical {
-  border-color: rgba(237, 135, 150, 1);
+  border-color: @red;
   border-width: 2px;
 }
-
 .summary {
-  color: rgba(192, 202, 245, 1);
+  color: @text;
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 4px;
 }
-
 .body {
-  color: rgba(130, 137, 172, 1);
+  color: @subtext;
   font-size: 12px;
   line-height: 1.5;
 }
-
 .notification-icon {
   border-radius: 8px;
   margin-right: 12px;
 }
-
 .notification-time {
-  color: rgba(130, 137, 172, 1);
+  color: @subtext;
   font-size: 10px;
   margin-top: 6px;
 }
-
 .notification-action {
   background: transparent;
-  color: rgba(94, 129, 172, 1);
-  border: 1px solid rgba(94, 129, 172, 0.4);
+  color: @accent;
+  border: 1px solid alpha(@accent, 0.4);
   border-radius: 8px;
   padding: 6px 12px;
   margin: 4px 4px 0 0;
@@ -245,51 +259,42 @@
   font-weight: 500;
   transition: all 200ms ease;
 }
-
 .notification-action:hover {
-  background: rgba(94, 129, 172, 0.2);
-  border-color: rgba(94, 129, 172, 1);
+  background: alpha(@accent, 0.2);
+  border-color: @accent;
 }
-
 .close-button {
   background: transparent;
-  color: rgba(130, 137, 172, 1);
+  color: @subtext;
   border-radius: 50%;
   padding: 4px;
   margin: 4px;
   transition: all 200ms ease;
 }
-
 .close-button:hover {
-  background: rgba(237, 135, 150, 0.2);
-  color: rgba(237, 135, 150, 1);
+  background: alpha(@red, 0.2);
+  color: @red;
 }
-
 /* ═══ SCROLLBAR ═══ */
 scrollbar {
   background: transparent;
 }
-
 scrollbar trough {
-  background: rgba(94, 129, 172, 0.1);
+  background: alpha(@accent, 0.1);
   border-radius: 8px;
 }
-
 scrollbar slider {
-  background: rgba(94, 129, 172, 1);
+  background: @accent;
   border-radius: 8px;
   min-height: 40px;
 }
-
 scrollbar slider:hover {
-  background: rgba(94, 129, 172, 0.8);
+  background: alpha(@accent, 0.8);
 }
-
 /* ═══ POPUP NOTIFICATIONS ═══ */
 .notification-window {
   background: transparent;
 }
-
 .floating-notifications .notification {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }

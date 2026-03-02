@@ -4,7 +4,7 @@
   "positionY": "top",
   "cssPriority": "user",
   "control-center-width": 380,
-  "control-center-height": 860,
+  "control-center-height": 760,
   "control-center-margin-top": 8,
   "control-center-margin-bottom": 8,
   "control-center-margin-right": 8,
@@ -26,6 +26,8 @@
   
   "widgets": [
     "buttons-grid",
+    "backlight",
+    "volume",
     "mpris",
     "dnd",
     "title",
@@ -45,6 +47,16 @@
       "show-album-art": "when-available",
       "autohide": true
     },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": false
+    },
+    "backlight": {
+      "label": "󰃟 ",
+      "device": "intel_backlight",
+      "subsystem": "backlight",
+      "min": 1
+    },
     "buttons-grid": {
       "actions": [
         {
@@ -61,7 +73,12 @@
         },
         {
           "label": "󰖚",
-          "command": "hyprsunset -t 3500"
+          "tooltip": "Blue Light Filter",
+          "type": "toggle",
+          "active": false,
+          "update-command": "~/.config/swaync/scripts/wlsunset-state.sh",
+          "command": "~/.config/swaync/scripts/toggle-wlsunset.sh"
+
         }
       ]
     }

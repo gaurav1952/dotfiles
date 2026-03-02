@@ -1,11 +1,7 @@
 /* Rofi Wallpaper Picker - Filebrowser mode */
-
+@import "colors.rasi"
 * {
-    bg0:    #1e1e2e;
-    bg1:    #313244;
-    fg0:    #cdd6f4;
-    fg1:    #bac2de;
-    accent: #cba6f7;
+
 
     background-color: transparent;
     text-color:       @fg0;

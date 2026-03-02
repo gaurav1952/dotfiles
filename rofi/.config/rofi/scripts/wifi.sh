@@ -11,7 +11,7 @@ WIFI_STATE=$(nmcli radio wifi)
 if [ "$WIFI_STATE" = "disabled" ]; then
     CHOSEN=$(echo -e "󰖩  Enable WiFi" | rofi -dmenu \
         -p "󰖪 WiFi Off" \
-        -theme ~/.config/rofi/catppuccin-mocha-list.rasi)
+        -theme ~/.config/rofi/theme-list.rasi)
     [ -z "$CHOSEN" ] && exit 0
     nmcli radio wifi on && notify "WiFi enabled" && sleep 2 && exec "$0"
     exit 0
@@ -38,7 +38,7 @@ MENU="󰖪  Disable WiFi\n󰑓  Rescan Networks\n󰌾  Forget a Network\n──�
 
 CHOSEN=$(echo -e "$MENU" | rofi -dmenu \
     -p "󰖩 WiFi" \
-    -theme ~/.config/rofi/catppuccin-mocha-list.rasi)
+    -theme ~/.config/rofi/theme-list.rasi)
 
 [ -z "$CHOSEN" ] && exit 0
 
@@ -62,7 +62,7 @@ case "$CHOSEN" in
 
         TO_FORGET=$(echo "$SAVED" | rofi -dmenu \
             -p "󰌾 Forget which network?" \
-            -theme ~/.config/rofi/catppuccin-mocha-list.rasi)
+            -theme ~/.config/rofi/theme-list.rasi)
 
         [ -z "$TO_FORGET" ] && exit 0
 
@@ -92,7 +92,7 @@ case "$CHOSEN" in
         else
             PASS=$(rofi -dmenu \
                 -p "󰌾 Password for $SSID" \
-                -theme ~/.config/rofi/catppuccin-mocha-list.rasi \
+                -theme ~/.config/rofi/theme-list.rasi \
                 -password)
             [ -z "$PASS" ] && exit 0
             nmcli device wifi connect "$SSID" password "$PASS" \

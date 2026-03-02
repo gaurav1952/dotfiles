@@ -1,15 +1,8 @@
 /* Catppuccin Mocha - Rofi Theme */
 
+@import "colors.rasi"
+
 * {
-    bg0:     #1e1e2eee;
-    bg1:     #313244ee;
-    bg2:     #45475aee;
-    fg0:     #cdd6f4;
-    fg1:     #bac2de;
-    accent:  #cba6f7;
-    urgent:  #f38ba8;
-    green:   #a6e3a1;
-    yellow:  #f9e2af;
 
     background-color: transparent;
     text-color:       @fg0;
