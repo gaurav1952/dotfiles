@@ -100,8 +100,9 @@ format = "[󱦟 $duration](bold yellow) "
 
 [python]
 symbol = " "
-format = "[$symbol$version]($style) "
-style = "bold blue"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "yellow bold"
+detect_files = ["*.py", "requirements.txt", "pyproject.toml"]
 
 [nodejs]
 symbol = " "

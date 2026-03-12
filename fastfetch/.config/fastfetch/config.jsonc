@@ -2,7 +2,7 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "source": "~/.dotfiles/fastfetch/.config/fastfetch/krishna1.png",
-    "color": {"1": "#c0c1ff", "2": "white"},
+    "color": {"1": "#81d5ce", "2": "white"},
     "padding": {
       "top": 4,
       "right": 5
@@ -24,52 +24,52 @@
 {
   "type": "os",
   "key": "󰨡 OS:",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "kernel",
   "key": "│ Kernel:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "shell",
   "key": "│ Shell:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "terminal",
   "key": "│ Terminal:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "terminalfont",
   "key": "│ Terminal Font:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "lm",
   "key": "│ DM: 󰌾 ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "de",
   "key": "│ DE:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "wm",
   "key": "│ WM:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "wmtheme",
   "key": "│ WM Theme: 󰃣 ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "packages",
   "key": "└ Packages:  ",
-  "keyColor": "#c0c1ff"
+  "keyColor": "#81d5ce"
 },
 {
   "type": "custom",
@@ -78,42 +78,42 @@
 {
   "type": "host",
   "key": "󰟀 Host:",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "bios",
   "key": "│ BIOS:  ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "memory",
   "key": "│ RAM Memory:  ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "swap",
   "key": "│ Swap: 󰾴 ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "cpu",
   "key": "│ Processor: 󰍛 ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "gpu",
   "key": "│ Videocard: 󰢮 ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "disk",
   "key": "│ Storage:  ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "battery",
   "key": "└ Battery: 󰁹 ",
-  "keyColor": "#c5c4dd"
+  "keyColor": "#b0ccc9"
 },
 {
   "type": "custom",
@@ -122,23 +122,23 @@
 {
   "type": "uptime",
   "key": " Uptime:",
-  "keyColor": "#e8b9d4"
+  "keyColor": "#b0c9e7"
 },
 {
    "type": "datetime",
    "key": "│ DateTime:  ",
-   "keyColor": "#e8b9d4"
+   "keyColor": "#b0c9e7"
 },
 {
    "type": "command",
    "key": "│ OS Time Life:  ",
-   "keyColor": "#e8b9d4",
+   "keyColor": "#b0c9e7",
    "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
 },
 {
   "type": "locale",
   "key": "└ Locale: 󰇧 ",
-  "keyColor": "#e8b9d4"
+  "keyColor": "#b0c9e7"
 },
 {
   "type": "custom",

@@ -41,12 +41,12 @@ if status is-interactive
     bind \e\[Z 'complete --list'
     
     function fish_user_key_bindings
+        # TAB → normal completion (progressive)
         bind -e tab
         bind -e \t
-        bind -e -M insert tab
-        bind -e -M insert \t
-        bind tab accept-autosuggestion
-        bind -M insert \t accept-autosuggestion
+        bind -M insert \t complete
+ # Ctrl+F → accept autosuggestion (LEFT-HAND → key)
+    # bind -M insert \c\t accept-autosuggestion
     end
 
     #export
