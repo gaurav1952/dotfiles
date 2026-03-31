@@ -23,8 +23,7 @@
 ################
 
 # See https://wiki.hypr.land/Configuring/Monitors/
-monitor = eDP-1, 1920x1080@60, 0x0, 1
-monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1
+monitor=,1920x1080@60.05,auto,1
 # monitor=
 # Set programs that you use
 $terminal = kitty
@@ -33,10 +32,10 @@ $menu = rofi -show drun
 ######################
 # Source
 
-source = ~/.dotfiles/hypr/.config/hypr/modules/autostart.conf
+source = ~/.dotfiles/hypr/.config/hypr/autostart.conf
 # source = ~/.dotfiles/hypr/.config/hypr/colors.conf
-source = ~/.dotfiles/hypr/.config/hypr/modules/keybinds.conf
-source = ~/.dotfiles/hypr/.config/hypr/modules/windowrule.conf
+source = ~/.dotfiles/hypr/.config/hypr/binds.conf
+source = ~/.dotfiles/hypr/.config/hypr/windowrule.conf
 
 
 
@@ -69,9 +68,17 @@ env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
 # permission = /usr/(bin|local/bin)/grim, screencopy, allow
 # permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
 # permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
-# plugin {
-    
-# }
+plugin {
+    hyprexpo {
+        columns = 3
+        gap_size = 5
+        bg_col = rgb(111111)
+        workspace_method = center current
+        gesture_distance = 300
+        enable_gesture = true        # enable touchpad swipe
+        # gesture_fingers = 3
+    }
+}
 
 #####################
 ### LOOK AND FEEL ###
@@ -82,7 +89,7 @@ env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
 # https://wiki.hypr.land/Configuring/Variables/#general
 general {
     gaps_in = 3
-    gaps_out = 2 
+    gaps_out = 10 
 
     border_size = 2
 
@@ -91,7 +98,7 @@ general {
     #col.inactive_border = rgba(595959aa)
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
-    resize_on_border = true
+    resize_on_border = false
 
     # Please see https://wiki.hypr.land/Configuring/Tearing/ before you turn this on
     allow_tearing = false
@@ -250,9 +257,4 @@ device {
 }
 
 
-
-
-source=/home/g4ur4v/.cache/qswitch/qswitch.conf
-
-source = /home/g4ur4v/.config/hypr/noctalia/noctalia-colors.conf
 
