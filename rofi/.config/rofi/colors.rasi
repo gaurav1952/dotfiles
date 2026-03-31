@@ -1,11 +1,8 @@
 * {
-    bg0:    #0e1514ee;
-    bg1:    #1a2120ee;
-    bg2:    #252b2aee;
-    fg0:    #dde4e2;
-    fg1:    #bec9c7;
-    accent: #81d5ce;
-    urgent: #ffb4ab;
-    green:  #00504c;
-    yellow: #b0c9e7;
+    bg0:    #141218;
+    bg1:    #211f24;
+    fg0:    #e6e0e9;
+    fg1:    #cac4cf;
+    accent: #d0bcff;
+    yellow: #ccc2dc;
 }

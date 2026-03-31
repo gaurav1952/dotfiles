@@ -1,5 +1,3 @@
-/* Catppuccin Mocha - Compact List Theme */
-
 @import "colors.rasi"
 
 * {

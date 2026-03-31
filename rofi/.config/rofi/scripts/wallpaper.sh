@@ -1,15 +1,18 @@
-#!/bin/bash
-# Wallpaper picker using rofi dmenu + swww
-WALLPAPER_DIR="$HOME/Pictures/wallpapers"  # Change it for to your wallpaper dir
-# Transition settings — edit these to change effect!
-# Types: fade, wipe, wave, grow, outer, random
-TRANSITION_TYPE="random"
+#!/usr/bin/env bash
+# ~/.local/bin/wallpaper-picker
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+TRANSITION_TYPE="wipe"       # wipe, wave, grow, outer, any, random, fade, left, right, top, bottom
 TRANSITION_DURATION="1.5"
 TRANSITION_FPS="60"
-TRANSITION_ANGLE="30"  # 0 = Left to Right , 90 = Top to Bottom 45 = Diagonal. Only in wipe and wave 
-# Make sure swww daemon is running
-swww query 2>/dev/null || (swww-daemon & sleep 0.5)
-# Build list with absolute paths as icons
+TRANSITION_ANGLE="30"        # 0 = Left to Right, 90 = Top to Bottom, 45 = Diagonal (wipe/wave only)
+
+# ── Ensure swww-daemon is running ──────────────────────────────────────────
+if ! swww query &>/dev/null; then
+    swww-daemon &
+    sleep 0.5   # wait for socket to be ready
+fi
+
+# ── Rofi wallpaper picker ──────────────────────────────────────────────────
 CHOSEN=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \
     \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
     | sort \
@@ -23,36 +26,30 @@ CHOSEN=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \
         -show-icons \
         -no-custom \
         -i)
+
 [ -z "$CHOSEN" ] && exit 0
-# Strip any trailing whitespace
 CHOSEN=$(echo "$CHOSEN" | xargs)
 WALLPAPER_PATH="$WALLPAPER_DIR/$CHOSEN"
 [ ! -f "$WALLPAPER_PATH" ] && exit 0
-# Apply wallpaper
+
+# ── Apply wallpaper with transition ───────────────────────────────────────
 swww img "$WALLPAPER_PATH" \
     --transition-type "$TRANSITION_TYPE" \
     --transition-duration "$TRANSITION_DURATION" \
     --transition-fps "$TRANSITION_FPS" \
     --transition-angle "$TRANSITION_ANGLE"
 
-# ── Matugen — generate Material You colors from wallpaper ──────────────────
-matugen image "$WALLPAPER_PATH"
+# ── Matugen — generate Material You colors ────────────────────────────────
+matugen image "$WALLPAPER_PATH" --mode dark
+sleep 0.8   # ensure all templates are written before reloading
 
-# ── Reload apps to pick up new colors ──────────────────────────────────────
-# Waybar — kill and restart
-pkill waybar && waybar &
-
-# Swaync - kill and restart
-pkill swaync && swaync &
-
-# Hyprland — reload config (picks up new colors.conf)
+# ── Reload apps ───────────────────────────────────────────────────────────
+pkill -SIGUSR2 waybar
+pkill swaync; swaync &
 hyprctl reload
+pkill -SIGUSR1 kitty 2>/dev/null
 
-# Kitty — reload all open kitty instances
-kill -SIGUSR1 $(pidof kitty) 2>/dev/null
-# ───────────────────────────────────────────────────────────────────────────
-
-# Save last wallpaper
+# ── Save last wallpaper ───────────────────────────────────────────────────
 mkdir -p "$HOME/.config/swww"
 echo "$WALLPAPER_PATH" > "$HOME/.config/swww/last_wallpaper"
 

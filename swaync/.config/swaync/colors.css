@@ -1,8 +1,7 @@
-@define-color base       #0e1514;
-@define-color surface    #1a2120;
-@define-color accent     #81d5ce;
-@define-color text       #dde4e2;
-@define-color subtext    #bec9c7;
-@define-color red        #ffb4ab;
-@define-color yellow     #b0c9e7;
-@define-color border     #3f4947;
+@define-color base      #141218;
+@define-color surface   #211f24;
+@define-color text      #e6e0e9;
+@define-color subtext   #cac4cf;
+@define-color accent    #d0bcff;
+@define-color yellow    #ccc2dc;
+@define-color red       #f2b8b5;
