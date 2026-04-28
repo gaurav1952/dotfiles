@@ -67,9 +67,10 @@
   "keyColor": "#d0bcff"
 },
 {
-  "type": "packages",
-  "key": "└ Packages:  ",
-  "keyColor": "#d0bcff"
+  "type": "command",
+  "key": "└ Packages:",
+  "keyColor": "#d0bcff",
+  "text": "printf '  pacman: %s  aur: %s  flatpak: %s' \"$(pacman -Q | wc -l)\" \"$(pacman -Qm | wc -l)\" \"$(flatpak list | wc -l)\""
 },
 {
   "type": "custom",

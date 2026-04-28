@@ -9,7 +9,7 @@ set -euo pipefail
 
 APPS_DIR="$HOME/.local/share/applications"
 ICONS_DIR="$HOME/.local/share/icons/webapps"
-VIVALDI_FLAGS="--password-store=basic"
+BRAVE_FLAGS="--password-store=basic"
 
 mkdir -p "$APPS_DIR" "$ICONS_DIR"
 
@@ -22,13 +22,13 @@ err()  { echo -e "${RED}  ✗ $*${NC}"; }
 # ── App definitions ──────────────────────────────────────────
 # Format: "Name|URL|IconName|Categories"
 declare -a WEBAPPS=(
-#  "YouTube Music|https://music.youtube.com|youtube-music|Audio;Music;"
-#  "WhatsApp|https://web.whatsapp.com|whatsapp|Network;InstantMessaging;"
+  "YouTube Music|https://music.youtube.com|youtube-music|Audio;Music;"
+  "WhatsApp|https://web.whatsapp.com|whatsapp|Network;InstantMessaging;"
   "ChatGPT|https://chatgpt.com|chatgpt|Utility;Education;"
   "Gmail|https://mail.google.com|gmail|Network;Email;"
 #  "Google Calendar|https://calendar.google.com|google-calendar|Office;"
 #  "Notion|https://notion.so|notion|Office;ProjectManagement;"
-  "GitHub|https://github.com|github|Development;"
+#  "GitHub|https://github.com|github|Development;"
   "Figma|https://figma.com|figma|Graphics;Design;"
 #  "Discord|https://discord.com/app|discord|Network;InstantMessaging;"
 #  "Spotify|https://open.spotify.com|spotify|Audio;Music;"
@@ -78,12 +78,12 @@ create_entry() {
   cat > "$entry_path" <<EOF
 [Desktop Entry]
 Name=${name}
-Exec=vivaldi ${VIVALDI_FLAGS} --app=${url} %U
+Exec=brave ${BRAVE_FLAGS} --app=${url} %U
 Icon=${icon}
 Type=Application
 Categories=${categories}
 StartupNotify=true
-StartupWMClass=vivaldi-${slug}
+StartupWMClass=brave-${slug}
 EOF
 
   ok "Created: ${slug}.desktop"

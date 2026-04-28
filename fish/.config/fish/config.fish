@@ -16,15 +16,17 @@ if status is-interactive
 
     #aliases
     #basic aliases
-    alias code='vscodium'
+    # alias code='vscodium'
     alias src='source ~/.config/fish/config.fish'
     alias cls='clear'
     alias cd="z"
+    alias hx="helix"
+    alias v="nvim"
     # alias z="zellij"
     # alias f="thunar . & disown" 
     
     # alias list exa
-    alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+    alias  l='eza -al --color=always --group-directories-first --icons' # preferred listing
     alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
     alias ll='eza -l --color=always --group-directories-first --icons'  # long format
     alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
@@ -61,7 +63,7 @@ if status is-interactive
     fish_add_path /usr/local/go/bin
     #loading nvm ( node version manager ) using bass ( fish plugin manager ) 
     function nvm
-        bass source ~/.nvm/nvm.sh ';' nvm $argv 
+        bass source ~/.nvm/nvm.sh --no-use ';' nvm use default
     end
     function mkcd
         mkdir -p $argv[1]; and cd $argv[1]
