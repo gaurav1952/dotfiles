@@ -1,0 +1,107 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="org.gnome.FileRoller"
+    open-floating true
+    //default-window-width 800
+    //default-window-height 600
+}
+
+window-rule {
+    match title="Bulk Rename"
+    open-floating true
+}
+window-rule {
+    match title=r"^Rename .*"
+    open-floating true
+}
+window-rule {
+    match app-id="org.pwmt.zathura"
+    open-floating true
+}
+window-rule {
+    match app-id="org.gnome.gThumb"
+    open-floating true
+}
+window-rule {
+    match app-id="com.gabm.satty"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+    open-maximized false
+    open-fullscreen false
+}
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol" // pavucontrol
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+    open-maximized false
+    open-fullscreen false
+}
+window-rule {
+    match app-id="thunar"
+    open-on-workspace "4"
+}
+// kde connect 
+window-rule {
+  match app-id="org.kde.kdeconnect.daemon"
+  open-floating true
+  default-column-width { fixed 600; }
+  default-window-height { fixed 200; }
+
+}
+window-rule {
+  match app-id="org.kde.kdeconnect.app"
+  open-floating true
+  default-column-width { fixed 800; }
+  default-window-height { fixed 600; }
+
+}
+window-rule {
+  match app-id="org.gnome.Calculator"
+  open-floating true
+  default-column-width { fixed 600; }
+  default-window-height { fixed 600; }
+
+}

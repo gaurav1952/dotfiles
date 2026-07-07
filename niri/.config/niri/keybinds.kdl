@@ -1,0 +1,9 @@
+
+binds {
+
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+E {spawn "thunar";}
+    Mod+period repeat=false {spawn "vicinae" "vicinae://launch/core/search-emojis";}
+
+    Mod+slash {spawn-sh "~/.dotfiles/scripts/shell_script.sh";}
+}
