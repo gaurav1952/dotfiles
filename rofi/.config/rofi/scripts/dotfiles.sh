@@ -27,4 +27,4 @@ CONFIG_PATH="$DOTFILES_DIR/$CHOSEN"
 
 # Open in vscodium
 #kitty vi "$CONFIG_PATH" 
-vscodium "$CONFIG_PATH"
+zed "$CONFIG_PATH"

@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "zoom": {
+      "label": "Zoom du fond d'écran",
+      "desc": "Échelle du fond d'écran pour permettre le mouvement de parallaxe"
+    },
+    "direction": {
+      "label": "Direction de la parallaxe",
+      "desc": "Direction dans laquelle le fond d'écran se déplace lors du changement d'espace de travail",
+      "none": "Aucune",
+      "horizontal": "Horizontale",
+      "vertical": "Verticale",
+      "both": "Horizontale + Verticale"
+    },
+    "horizontal": {
+      "title": "Parallaxe horizontale",
+      "amount": "Intensité de la parallaxe",
+      "duration": "Durée de l'animation"
+    },
+    "vertical": {
+      "title": "Parallaxe verticale",
+      "amount": "Intensité de la parallaxe",
+      "duration": "Durée de l'animation"
+    },
+    "invert": {
+      "label": "Inverser la direction",
+      "desc": "Déplacer le fond d'écran dans la même direction que les changements d'espace de travail"
+    },
+    "autoZoom": {
+      "label": "Zoom automatique",
+      "desc": "Zoomer automatiquement et progressivement pour éviter que la couche de fond ne soit visible"
+    },
+    "easing": {
+      "label": "Courbe d'accélération",
+      "desc": "La courbe mathématique utilisée pour les animations de parallaxe",
+      "linear": "Linéaire",
+      "inQuad": "Ease In Quad",
+      "outQuad": "Ease Out Quad",
+      "inOutQuad": "Ease In Out Quad",
+      "inCubic": "Ease In Cubic",
+      "outCubic": "Ease Out Cubic",
+      "inOutCubic": "Ease In Out Cubic",
+      "inQuart": "Ease In Quart",
+      "outQuart": "Ease Out Quart",
+      "inOutQuart": "Ease In Out Quart",
+      "inExpo": "Ease In Exponential",
+      "outExpo": "Ease Out Exponential",
+      "inOutExpo": "Ease In Out Exponential"
+    }
+  }
+}
