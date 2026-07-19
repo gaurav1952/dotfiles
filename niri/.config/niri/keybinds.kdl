@@ -6,4 +6,5 @@ binds {
     Mod+period repeat=false {spawn "vicinae" "vicinae://launch/core/search-emojis";}
 
     Mod+slash {spawn-sh "~/.dotfiles/scripts/shell_script.sh";}
-}
+    Mod+t{spawn "kitty";}
+  }

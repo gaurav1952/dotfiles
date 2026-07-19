@@ -1,5 +1,7 @@
 include "windowrule.kdl"
 include "keybinds.kdl"
+include "layerrule.kdl"
+
 input {
     keyboard {
         xkb {
@@ -53,9 +55,10 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-    gaps 5
+    gaps 3
 
-        center-focused-column "never"
+    center-focused-column "never"
+    always-center-single-column
 
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
@@ -94,7 +97,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -204,10 +207,13 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "vicinae" "server"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "qs -c noctalia-shell --no-duplicate"
+// spawn-at-startup "dms" "run"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-
+//spawn-sh-at-startup " ~/noctalia-git/pkg/noctalia-git/usr/bin/noctalia"
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
      skip-at-startup
@@ -264,7 +270,7 @@ window-rule {
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
@@ -279,6 +285,11 @@ window-rule {
 window-rule {
     geometry-corner-radius 0
     clip-to-geometry true
+}
+
+cursor {
+    xcursor-theme "capitaine-cursors-light"
+    xcursor-size 24
 }
 
 binds {
@@ -575,4 +586,5 @@ binds {
 }
 
 include "./noctalia.kdl"
+
 

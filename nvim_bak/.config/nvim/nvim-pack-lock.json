@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "gitsigns.nvim": {
+      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:#89b4fa)\
+[  ](bg:#89b4fa fg:#1e1e2e)\
+[](fg:#89b4fa bg:#a6e3a1)\
+$directory\
+[](fg:#a6e3a1 bg:#f9e2af)\
+$git_branch$git_status\
+[](fg:#f9e2af bg:#fab387)\
+$nodejs$python$rust$golang$lua\
+[](fg:#fab387)
+$character"""
+
+command_timeout = 1000
+add_newline = true
+
+[directory]
+style = "bg:#a6e3a1 fg:#1e1e2e"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+style = "bg:#f9e2af fg:#1e1e2e"
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[git_status]
+style = "bg:#f9e2af fg:#1e1e2e"
+format = "[$all_status$ahead_behind]($style)"
+
+[nodejs]
+style = "bg:#fab387 fg:#1e1e2e"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[python]
+style = "bg:#fab387 fg:#1e1e2e"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[rust]
+style = "bg:#fab387 fg:#1e1e2e"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[golang]
+style = "bg:#fab387 fg:#1e1e2e"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[lua]
+style = "bg:#fab387 fg:#1e1e2e"
+format = "[ $symbol$version ]($style)"
+symbol = " "
+
+[character]
+success_symbol = "[❯](bold #a6e3a1)"
+error_symbol = "[❯](bold #f38ba8)"
+vimcmd_symbol = "[❮](bold #f9e2af)"

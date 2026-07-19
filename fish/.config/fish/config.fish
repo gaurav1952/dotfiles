@@ -2,11 +2,9 @@ set -g fish_greeting
 # set -g autopair_tab false
 if status is-interactive
 
-    # Commands to run in interactive sessions can go here
-    # run neofetch on start
-    fastfetch
-
-    #init
+    
+    #fastfetch
+    
     #starship initialize
     starship init fish | source
     #zoxide
@@ -15,6 +13,7 @@ if status is-interactive
 
 
     #aliases
+
     #basic aliases
     # alias code='vscodium'
     alias src='source ~/.config/fish/config.fish'
@@ -22,6 +21,7 @@ if status is-interactive
     alias cd="z"
     alias hx="helix"
     alias v="nvim"
+    alias gpp="g++"
     # alias z="zellij"
     # alias f="thunar . & disown" 
     
@@ -61,13 +61,16 @@ if status is-interactive
 
     #export
     fish_add_path /usr/local/go/bin
+
     #loading nvm ( node version manager ) using bass ( fish plugin manager ) 
     function nvm
         bass source ~/.nvm/nvm.sh --no-use ';' nvm use default
     end
+
     function mkcd
         mkdir -p $argv[1]; and cd $argv[1]
     end
+
     function y
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         command yazi $argv --cwd-file="$tmp"
@@ -76,7 +79,9 @@ if status is-interactive
         end
         rm -f -- "$tmp"
     end
+
     function f
         thunar $argv &; disown
     end   
+
 end
