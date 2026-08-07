@@ -22,6 +22,7 @@ if status is-interactive
     alias hx="helix"
     alias v="nvim"
     alias gpp="g++"
+    alias cpy="wl-copy"
     # alias z="zellij"
     # alias f="thunar . & disown" 
     

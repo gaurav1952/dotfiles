@@ -94,8 +94,8 @@ window-rule {
 window-rule {
   match app-id="org.kde.kdeconnect.app"
   open-floating true
-  default-column-width { fixed 800; }
-  default-window-height { fixed 600; }
+  default-column-width { fixed 1032; }
+  default-window-height { fixed 895; }
 
 }
 window-rule {
@@ -114,7 +114,7 @@ window-rule {
 
 }
 window-rule {
-    match app-id="^kitty$"
+    match app-id="^kitty$" 
     background-effect {
         blur true
     }

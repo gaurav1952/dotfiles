@@ -17,6 +17,7 @@ vim.pack.add({
   {src= "https://github.com/windwp/nvim-autopairs" },
   {src= "https://github.com/akinsho/bufferline.nvim"},
   -- {src= "https://github.com/nvim-mini/mini.nvim"},
+  {src= "https://github.com/YousefHadder/markdown-plus.nvim"},
 })
 
 require("mason").setup()
@@ -28,6 +29,8 @@ require("mason-tool-installer").setup({
 require("fzf-lua").setup({
 
 })
+require("markdown-plus").setup()
+
 -- require("telescope").setup({
 --   defaults = {
 --     file_ignore_patterns = { '.git/', 'node_modules/' }

@@ -208,9 +208,9 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "vicinae" "server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-sh-at-startup "qs -c noctalia-shell --no-duplicate"
+// spawn-sh-at-startup "qs -c noctalia-shell --no-duplicate"
 // spawn-at-startup "dms" "run"
-
+spawn-at-startup "awww-daemon"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 //spawn-sh-at-startup " ~/noctalia-git/pkg/noctalia-git/usr/bin/noctalia"
@@ -287,37 +287,22 @@ window-rule {
     clip-to-geometry true
 }
 
-cursor {
-    xcursor-theme "capitaine-cursors-light"
-    xcursor-size 24
+// cursor {
+//     xcursor-theme "capitaine-cursors-light"
+//     xcursor-size 24
+// }
+
+environment {
+    XCURSOR_THEME "capitaine-cursors-light"
+    XCURSOR_SIZE "24"
 }
 
 binds {
 
-    // Custom keybinds
-    
-    Mod+X {
-        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"
-    }
-    Mod+Shift+W {
-        spawn-sh "qs -c noctalia-shell ipc call plugin:wallcards toggle"
-    }
-    Mod+Shift+V {
-        spawn-sh "vicinae 'vicinae://launch/clipboard/history'"
-    }
-    Print {
-        spawn-sh "FILE=~/Pictures/Screenshots/shot_$(date +%F_%H-%M-%S).png && grim - | satty --filename - --output-filename \"$FILE\" --early-exit && wl-copy --type image/png < \"$FILE\""
-    }
-
-    Mod+Shift+S {
-        spawn-sh "FILE=~/Pictures/Screenshots/shot_$(date +%F_%H-%M-%S).png && grim -g \"$(slurp)\" - | satty --filename - --output-filename \"$FILE\" --early-exit && wl-copy --type image/png < \"$FILE\""
-    }
-    
-
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -588,3 +573,7 @@ binds {
 include "./noctalia.kdl"
 
 
+
+
+// Tide Island shortcut bindings
+include "/home/g4ur4v/.config/tide-island/niri-shortcuts.kdl"
