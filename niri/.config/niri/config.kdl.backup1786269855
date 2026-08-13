@@ -577,6 +577,3 @@ include "./noctalia.kdl"
 
 // Tide Island shortcut bindings
 include "/home/g4ur4v/.config/tide-island/niri-shortcuts.kdl"
-
-// DMS Include Configs
-include "dms/cursor.kdl"

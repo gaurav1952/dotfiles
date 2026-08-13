@@ -45,4 +45,4 @@ next_symbol="${full_to_symbol[$next_layout]}"
 
 mmsg dispatch setlayout,"$next_layout"
 
-notify-send "Layout Changed" "${layout_names[$next_symbol]}" -i preferences-desktop-display -t 1500
+swayosd-client --custom-message="${layout_names[$next_symbol]}" --custom-icon="preferences-desktop-display"

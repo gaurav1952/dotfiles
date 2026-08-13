@@ -1,102 +1,230 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 palette = "noctalia"
 
+add_newline = true
+command_timeout = 1000
+scan_timeout = 30
+
 format = """
+$os\
+$username\
+$hostname\
 $directory\
-[](fg:#f9e2af bg:#a6e3a1)\
-$git_branch$git_status\
-[](fg:#a6e3a1 bg:#94e2d5)\
-$nodejs$python$rust$golang$lua$c\
-[](fg:#94e2d5 bg:#89b4fa)\
-$package\
-[](fg:#89b4fa bg:#cba6f7)\
+$git_branch\
+$git_status\
+$fill\
 $cmd_duration\
-[](fg:#cba6f7 bg:#f5c2e7)\
-[ $time ](bg:#f5c2e7 fg:#1e1e2e)\
-[](fg:#f5c2e7 bg:#585b70)\
-[](fg:#585b70 bg:#45475a)\
-[](fg:#45475a bg:#313244)\
-[](fg:#313244)
+$line_break\
 $character"""
 
-command_timeout = 1000
-add_newline = true
+right_format = """
+$python\
+$nodejs\
+$rust\
+$golang\
+$php\
+$docker_context\
+"""
+
+# ─────────────────────────────────────────────
+# OS
+# ─────────────────────────────────────────────
+
+[os.symbols]
+Arch = "󰣇 "
+CachyOS = " "
+Ubuntu = "󰕈 "
+Debian = "󰣚 "
+Fedora = "󰣛 "
+NixOS = "󱄅 "
+Windows = "󰍲 "
 
 [os]
 disabled = false
-style = "bg:#fab387 fg:#1e1e2e bold"
+style = "bold purple"
 
-[os.symbols]
-Arch = "󰣇"
-Ubuntu = ""
-Debian = ""
-Windows = "󰍲"
-Macos = "󰀵"
+# ─────────────────────────────────────────────
+# USER
+# ─────────────────────────────────────────────
+
+[username]
+show_always = false
+style_user = "bold lavender"
+style_root = "bold red"
+format = "[$user]($style) "
+
+# ─────────────────────────────────────────────
+# HOSTNAME
+# ─────────────────────────────────────────────
+
+[hostname]
+ssh_only = true
+format = "[@$hostname](bold lavender) "
+trim_at = "."
+disabled = false
+
+# ─────────────────────────────────────────────
+# DIRECTORY
+# ─────────────────────────────────────────────
 
 [directory]
-style = "bg:#f9e2af fg:#1e1e2e bold"
-format = "[ 󰉋 $path ]($style)"
+style = "bold blue"
+format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 3
 truncate_to_repo = true
+home_symbol = "~"
+read_only = " 󰌾"
+read_only_style = "red"
+
+# ─────────────────────────────────────────────
+# GIT
+# ─────────────────────────────────────────────
 
 [git_branch]
-style = "bg:#a6e3a1 fg:#1e1e2e bold"
-format = "[  $branch ]($style)"
+symbol = "󰘬 "
+style = "bold mauve"
+format = "[$symbol$branch]($style) "
 
 [git_status]
-style = "bg:#a6e3a1 fg:#1e1e2e"
-format = "[$all_status$ahead_behind ]($style)"
+style = "bold red"
+format = "([$all_status$ahead_behind]($style)) "
+
+conflicted = "󰞇 "
 ahead = "⇡${count} "
 behind = "⇣${count} "
-diverged = "⇕ "
+diverged = "󰹹 ⇡${ahead_count} ⇣${behind_count} "
+
 untracked = "?${count} "
 modified = "!${count} "
 staged = "+${count} "
+renamed = "»${count} "
 deleted = "✘${count} "
 
-[nodejs]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
+# ─────────────────────────────────────────────
+# FILL
+# ─────────────────────────────────────────────
 
-[python]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
+[fill]
+symbol = " "
 
-[rust]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
-
-[golang]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
-
-[lua]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
-
-[c]
-style = "bg:#94e2d5 fg:#1e1e2e bold"
-format = "[  $version ]($style)"
-
-[package]
-style = "bg:#89b4fa fg:#1e1e2e bold"
-format = "[ 󰏗 $version ]($style)"
+# ─────────────────────────────────────────────
+# COMMAND DURATION
+# ─────────────────────────────────────────────
 
 [cmd_duration]
-min_time = 500
-style = "bg:#cba6f7 fg:#1e1e2e bold"
-format = "[ 󱦟 $duration ]($style)"
+min_time = 2000
+format = "took [$duration](bold yellow) "
+
+# ─────────────────────────────────────────────
+# PROMPT CHARACTER
+# ─────────────────────────────────────────────
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
+# ─────────────────────────────────────────────
+# PYTHON
+# ─────────────────────────────────────────────
+
+[python]
+symbol = "󰌠 "
+style = "bold yellow"
+format = "[$symbol$pyenv_prefix$version(\\($virtualenv\\))]($style) "
+pyenv_version_name = true
+python_binary = ["python3", "python"]
+
+# ─────────────────────────────────────────────
+# NODE
+# ─────────────────────────────────────────────
+
+[nodejs]
+symbol = "󰎙 "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+# ─────────────────────────────────────────────
+# RUST
+# ─────────────────────────────────────────────
+
+[rust]
+symbol = "󱘗 "
+style = "bold red"
+format = "[$symbol$version]($style) "
+
+# ─────────────────────────────────────────────
+# GO
+# ─────────────────────────────────────────────
+
+[golang]
+symbol = "󰟓 "
+style = "bold cyan"
+format = "[$symbol$version]($style) "
+
+# ─────────────────────────────────────────────
+# PHP
+# ─────────────────────────────────────────────
+
+[php]
+symbol = "󰌟 "
+style = "bold blue"
+format = "[$symbol$version]($style) "
+
+# ─────────────────────────────────────────────
+# DOCKER
+# ─────────────────────────────────────────────
+
+[docker_context]
+symbol = "󰡨 "
+style = "bold blue"
+format = "[$symbol$context]($style) "
+
+# ─────────────────────────────────────────────
+# TIME
+# ─────────────────────────────────────────────
 
 [time]
 disabled = false
-style = "bg:#f5c2e7 fg:#1e1e2e bold"
-format = "$time"
-time_format = "%I:%M %p"
+format = "[$time]($style) "
+time_format = "%H:%M"
+style = "bold lavender"
 
-[character]
-success_symbol = "[❯](bold #a6e3a1)"
-error_symbol = "[❯](bold #f38ba8)"
-vimcmd_symbol = "[❮](bold #f9e2af)"
+# ─────────────────────────────────────────────
+# BATTERY
+# ─────────────────────────────────────────────
+
+[battery]
+disabled = false
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+# ─────────────────────────────────────────────
+# STATUS
+# ─────────────────────────────────────────────
+
+[status]
+disabled = false
+symbol = "✘ "
+style = "bold red"
+format = "[$symbol$status]($style) "
+
+# ─────────────────────────────────────────────
+# PACKAGE
+# ─────────────────────────────────────────────
+
+[package]
+disabled = true
 
 # >>> NOCTALIA STARSHIP PALETTE >>>
 # Noctalia Starship Palette
@@ -104,38 +232,38 @@ vimcmd_symbol = "[❮](bold #f9e2af)"
 
 [palettes.noctalia]
 # Standard colors
-blue      = "#dcbce0"
+blue      = "#b3c8e8"
 red       = "#ffb4ab"
-green     = "#aac7ff"
-yellow    = "#bec7dc"
-cyan      = "#bec7dc"
-magenta   = "#aac7ff"
-white     = "#e2e2e2"
-black     = "#474747"
+green     = "#80d5d4"
+yellow    = "#b0cccb"
+cyan      = "#b0cccb"
+magenta   = "#80d5d4"
+white     = "#dde4e3"
+black     = "#3f4948"
 
 # Extended palette (Catppuccin-compatible names)
-rosewater = "#bec7dc"
+rosewater = "#b0cccb"
 flamingo  = "#ffb4ab"
-pink      = "#aac7ff"
-mauve     = "#aac7ff"
+pink      = "#80d5d4"
+mauve     = "#80d5d4"
 maroon    = "#ffb4ab"
-peach     = "#bec7dc"
-teal      = "#bec7dc"
-sky       = "#bec7dc"
-sapphire  = "#dcbce0"
-lavender  = "#aac7ff"
+peach     = "#b0cccb"
+teal      = "#b0cccb"
+sky       = "#b0cccb"
+sapphire  = "#b3c8e8"
+lavender  = "#80d5d4"
 
 # Text shades
-text      = "#e2e2e2"
-subtext1  = "#e2e2e2"
-subtext0  = "#919191"
+text      = "#dde4e3"
+subtext1  = "#dde4e3"
+subtext0  = "#889392"
 
 # Surface shades
-overlay2  = "#919191"
-overlay1  = "#919191"
-overlay0  = "#474747"
-surface2  = "#474747"
-surface1  = "#474747"
+overlay2  = "#889392"
+overlay1  = "#889392"
+overlay0  = "#3f4948"
+surface2  = "#3f4948"
+surface1  = "#3f4948"
 surface0  = "#000000"
 base      = "#000000"
 mantle    = "#000000"

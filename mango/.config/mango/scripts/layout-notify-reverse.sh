@@ -39,10 +39,11 @@ for i in "${!layouts[@]}"; do
   fi
 done
 
-next_index=$(((current_index - 1 + ${#layouts[@]}) % ${#layouts[@]}))
-next_layout="${layouts[$next_index]}"
-next_symbol="${full_to_symbol[$next_layout]}"
+# Wrap backwards instead of forwards
+prev_index=$(((current_index - 1 + ${#layouts[@]}) % ${#layouts[@]}))
+prev_layout="${layouts[$prev_index]}"
+prev_symbol="${full_to_symbol[$prev_layout]}"
 
-mmsg dispatch setlayout,"$next_layout"
+mmsg dispatch setlayout,"$prev_layout"
 
-notify-send "Layout Changed" "${layout_names[$next_symbol]}" -i preferences-desktop-display -t 1500
+swayosd-client --custom-message="${layout_names[$prev_symbol]}" --custom-icon="view-grid-symbolic"
