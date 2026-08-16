@@ -20,8 +20,9 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; }; #If you want access to inputs in your home.nix
-              users.g4ur4v = ./home.nix; # replace <USERNAME> with your actual username
+              extraSpecialArgs = { inherit inputs; };
+              users.g4ur4v = ./home.nix;
+              backupFileExtension = "bak";
             };
           }
       ];

@@ -181,6 +181,16 @@ style = "bold blue"
 format = "[$symbol$context]($style) "
 
 # ─────────────────────────────────────────────
+#  NIX_SHELL
+# ─────────────────────────────────────────────
+[nix_shell]
+disabled = false
+format = 'via [❄️ $state( \($name\))]($style) '
+impure_msg = '[impure]'
+pure_msg = '[pure]'
+style = 'bold blue'
+
+# ─────────────────────────────────────────────
 # TIME
 # ─────────────────────────────────────────────
 

@@ -98,8 +98,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  
-  programs.fish.enable = true;
+  programs.fish.enable = true; 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -110,9 +109,7 @@
 	wget
 	git
 	fastfetch
-	kitty
 	onlyoffice-desktopeditors 
-	neovim
 	zoom-us
 	zed-editor
 	snapshot
