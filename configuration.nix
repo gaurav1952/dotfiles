@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs,inputs, ... }:
 
 {
   imports =
@@ -23,7 +23,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
   # Enable blutooth
   hardware.bluetooth = {
 	enable = true;
@@ -98,23 +98,26 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.fish.enable = true; 
+  programs.fish.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	vim 
+	vim
 	wget
 	git
 	fastfetch
-	onlyoffice-desktopeditors 
+	onlyoffice-desktopeditors
 	zoom-us
 	zed-editor
 	snapshot
 	obs-studio
-	brave
+	kdePackages.kdenlive
+  brave
+  gimp
+  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
