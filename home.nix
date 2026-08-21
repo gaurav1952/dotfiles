@@ -11,8 +11,10 @@
 	./home/fish.nix
 	./home/packages.nix
 	./home/kitty.nix
-	./home/nvim.nix
+	# ./home/nvim.nix
 	./home/direnv.nix
+	./home/fastfetch.nix
+  ./home/git.nix
 
  ];
 }

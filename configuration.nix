@@ -105,19 +105,26 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	vim
-	wget
-	git
-	fastfetch
-	onlyoffice-desktopeditors
-	zoom-us
-	zed-editor
-	snapshot
-	obs-studio
-	kdePackages.kdenlive
-  brave
-  gimp
-  inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    vim
+    wget
+    git
+    gcc
+	  ripgrep
+	  fd
+    fzf
+	  jq
+	  tree
+    curl
+
+
+
+# system Utilites 
+    file
+    which 
+    unzip
+    zip
+    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

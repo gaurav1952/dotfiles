@@ -22,12 +22,19 @@
      la   = "eza -a --color=always --group-directories-first --icons";
      ll   = "eza -l --color=always --group-directories-first --icons";
      lt   = "eza -aT --color=always --group-directories-first --icons";
-    "l."  = "eza -a | grep -e '^\\.'";
+     "l."  = "eza -a | grep -e '^\\.'";
 
 
    #NixOs
-   nixbuild  = "sudo nixos-rebuild build --flake ~/grv-dots#grv";
-   nixswitch = "sudo nixos-rebuild switch --flake ~/grv-dots#grv";
+    nixbuild  = "sudo nixos-rebuild build --flake ~/grv-dots#grv";
+    nixswitch = "sudo nixos-rebuild switch --flake ~/grv-dots#grv";
+  
+   #Home-manager
+    homeswitch = "home-manager switch --flake ~/grv-dots#grv";
+   
+   # apps
+    whatsapp = "vivaldi --app=https://web.whatsapp.com";
+
 	};
 
 	functions = {

@@ -2,157 +2,157 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "source": "~/.dotfiles/fastfetch/.config/fastfetch/arch-linux.png",
-    "color": {"1": "#d0bcff", "2": "white"},
+    "color": { "1": "#d0bcff", "2": "white" },
     "padding": {
       "top": 4,
-      "right": 5
+      "right": 5,
     },
-    "height": 18
+    "height": 18,
   },
   "display": {
-    "separator": " ▸ " // :
+    "separator": " ▸ ", // :
   },
-"modules": [
-  {
-    "type": "title"
-  },
-"break",
-{
-  "type": "custom",
-  "format": "\u001b[90m┌────────────────────── Operating System ──────────────────────┐"
-},
-{
-  "type": "os",
-  "key": "󰨡 OS:",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "kernel",
-  "key": "│ Kernel:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "shell",
-  "key": "│ Shell:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "terminal",
-  "key": "│ Terminal:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "terminalfont",
-  "key": "│ Terminal Font:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "lm",
-  "key": "│ DM: 󰌾 ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "de",
-  "key": "│ DE:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "wm",
-  "key": "│ WM:  ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "wmtheme",
-  "key": "│ WM Theme: 󰃣 ",
-  "keyColor": "#d0bcff"
-},
-{
-  "type": "command",
-  "key": "└ Packages:",
-  "keyColor": "#d0bcff",
-  "text": "printf '  pacman: %s  aur: %s  flatpak: %s' \"$(pacman -Q | wc -l)\" \"$(pacman -Qm | wc -l)\" \"$(flatpak list | wc -l)\""
-},
-{
-  "type": "custom",
-  "format": "\u001b[90m├────────────────────── Device ────────────────────────────────┤"
-},
-{
-  "type": "host",
-  "key": "󰟀 Host:",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "bios",
-  "key": "│ BIOS:  ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "memory",
-  "key": "│ RAM Memory:  ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "swap",
-  "key": "│ Swap: 󰾴 ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "cpu",
-  "key": "│ Processor: 󰍛 ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "gpu",
-  "key": "│ Videocard: 󰢮 ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "disk",
-  "key": "│ Storage:  ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "battery",
-  "key": "└ Battery: 󰁹 ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "custom",
-  "format": "\u001b[90m├────────────────────── Others Configurations ─────────────────┤"
-},
-{
-  "type": "uptime",
-  "key": " Uptime:",
-  "keyColor": "#ccc2dc"
-},
-{
-   "type": "datetime",
-   "key": "│ DateTime:  ",
-   "keyColor": "#ccc2dc"
-},
-{
-   "type": "command",
-   "key": "│ OS Time Life:  ",
-   "keyColor": "#ccc2dc",
-   "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-},
-{
-  "type": "locale",
-  "key": "└ Locale: 󰇧 ",
-  "keyColor": "#ccc2dc"
-},
-{
-  "type": "custom",
-  "format": "\u001b[90m└──────────────────────────────────────────────────────────────┘"
-},
-{
-  "type": "colors",
-  "paddingLeft": 24,
-  "symbol": "circle",
-  "block": {
-    "width": 10
-  }
-},
-"break",
-]
+  "modules": [
+    {
+      "type": "title",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌────────────────────── Operating System ──────────────────────┐",
+    },
+    {
+      "type": "os",
+      "key": "󰨡 OS:",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "kernel",
+      "key": "│ Kernel:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "shell",
+      "key": "│ Shell:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "terminal",
+      "key": "│ Terminal:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "terminalfont",
+      "key": "│ Terminal Font:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "lm",
+      "key": "│ DM: 󰌾 ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "de",
+      "key": "│ DE:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "wm",
+      "key": "│ WM:  ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "wmtheme",
+      "key": "│ WM Theme: 󰃣 ",
+      "keyColor": "#d0bcff",
+    },
+    {
+      "type": "command",
+      "key": "└ Packages:",
+      "keyColor": "#d0bcff",
+      "text": "printf '  pacman: %s  aur: %s  flatpak: %s' \"$(pacman -Q | wc -l)\" \"$(pacman -Qm | wc -l)\" \"$(flatpak list | wc -l)\"",
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m├────────────────────── Device ────────────────────────────────┤",
+    },
+    {
+      "type": "host",
+      "key": "󰟀 Host:",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "bios",
+      "key": "│ BIOS:  ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "memory",
+      "key": "│ RAM Memory:  ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "swap",
+      "key": "│ Swap: 󰾴 ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "cpu",
+      "key": "│ Processor: 󰍛 ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "gpu",
+      "key": "│ Videocard: 󰢮 ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "disk",
+      "key": "│ Storage:  ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "battery",
+      "key": "└ Battery: 󰁹 ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m├────────────────────── Others Configurations ─────────────────┤",
+    },
+    {
+      "type": "uptime",
+      "key": " Uptime:",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "datetime",
+      "key": "│ DateTime:  ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "command",
+      "key": "│ OS Time Life:  ",
+      "keyColor": "#ccc2dc",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+    },
+    {
+      "type": "locale",
+      "key": "└ Locale: 󰇧 ",
+      "keyColor": "#ccc2dc",
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└──────────────────────────────────────────────────────────────┘",
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 24,
+      "symbol": "circle",
+      "block": {
+        "width": 10,
+      },
+    },
+    "break",
+  ],
 }
